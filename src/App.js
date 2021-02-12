@@ -1,25 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { Component } from 'react'
+import { Route, Switch } from 'react-router-dom'
+import Header from './containers/Header'
+import Footer from './containers/Footer'
+import NavBar from './components/NavBar';
+import HomePage from './pages/HomePage'
+import About from './pages/About'
 
-function App() {
-  return (
+
+class App extends Component {
+  render() {
+    return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <NavBar />
+      <Switch>
+      <Route exact path='/' component={HomePage} />
+          <Route exact path='/about' component={About}/>
+          {/* <Route exact path='/members' component={MemberList} />
+          <Route exact path='/members/add' component={AddMember} />
+          <Route exact path='/members/:id/edit' component={EditMember} />
+          <Route exact path='/members/:id' component={MemberPage} />
+          <Route exact path='/tours' component={TourList} /> */}
+      </Switch>
+      <Footer />
     </div>
-  );
+    );
+  }
+  
 }
 
 export default App;
