@@ -8,9 +8,9 @@ import '../App.css'
 function Header() {
 
     return (
-        <Container fluid className="noPadding">
+        <Container fluid>
             <Row >
-                <Col className="logoLeft"><GtrFront /></Col>
+                <Col className="rounded float-left"><GtrFront /></Col>
                 <Col className="logoMargin"><Logo /></Col>
                 <Col></Col>
             </Row>
