@@ -4,19 +4,6 @@
   right:0;
 }
 
-.container {
-  width: 100%;
-    padding-right: 0px;
-    padding-left: 0px;
-    margin-right: auto;
-    margin-left: auto
-}
-
-.logoLeft {
-  margin-left: 0;
-  padding-left: 0;
-}
-
 .logoMargin {
   margin-top: 10px;
 }
