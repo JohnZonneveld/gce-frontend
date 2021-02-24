@@ -5,7 +5,7 @@ import '../App.css'
 const link = {
   width: '100px',
   padding: '6px 10px 6px 10px',
-  margin: '10px 6px 6px 10px',
+  margin: '6px 6px 6px 6px',
   background: '#2F9B30',
   textDecoration: 'none',
   color: 'white',

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import { Form, Col, Row } from 'react-bootstrap';
  
 class TourForm extends Component {
  
     constructor() {
         super();
         this.state = {
-            tour_name: '',
+            name: '',
             country: '',
             date: '',
             duration: '',
@@ -29,88 +30,128 @@ class TourForm extends Component {
  
     render() {
         return(
-            <div>
-                <form onSubmit={event => this.handleSubmit(event)}>
-                    <p>
-                    <label>Tour name:</label>
-                    <input
-                        type="text"
-                        onChange={this.handleChange} value={this.state.tour_name}/>
-                    </p>
-                    <p>
-                    <label>Country:</label>
-                    <input
-                        type="text"
-                        onChange={this.handleChange} value={this.state.country}/>
-                    </p>
-                    <p>
-                    <label>Date:</label>
-                    <input
-                        type="text"
-                        onChange={this.handleChange} value={this.state.date}/>
-                    </p>
-                    <p>
-                    <label>Duration:</label>
-                    <input
-                        type="text"
-                        onChange={this.handleChange} value={this.state.duration}/>
-                    </p>
-                    <p>
-                    <label>Hotel Name:</label>
-                    <input
-                        type="text"
-                        onChange={this.handleChange} value={this.state.hotel_name}/>
-                    </p>
-                    <p>
-                    <label>Hotel Address:</label>
-                    <input
-                        type="text"
-                        onChange={this.handleChange} value={this.state.hotel_address}/>
-                    </p>
-                    <p>
-                    <label>Hotel Town:</label>
-                    <input
-                        type="text"
-                        onChange={this.handleChange} value={this.state.hotel_town}/>
-                    </p>
-                    <p>
-                    <label>Hotel Zip Code:</label>
-                    <input
-                        type="text"
-                        onChange={this.handleChange} value={this.state.hotel_zip}/>
-                    </p>
-                    <p>
-                    <label>Hotel Website:</label>
-                    <input
-                        type="text"
-                        onChange={this.handleChange} value={this.state.hotel_web}/>
-                    </p>
-                    <p>
-                    <label>Hotel Email:</label>
-                    <input
-                        type="text"
-                        onChange={this.handleChange} value={this.state.hotel_email}/>
-                    </p>
-                    <p>
-                    <label>Hotel Telephone:</label>
-                    <input
-                        type="text"
-                        onChange={this.handleChange} value={this.state.hotel_telephone}/>
-                    </p>
-                    <p>
-                    <label>Hotel Fax:</label>
-                    <input
-                        type="text"
-                        onChange={this.handleChange} value={this.state.hotel_fax}/>
-                    </p>
-                    <p>
-                    <label>Info:</label>
-                    <input
-                        type="text"
-                        onChange={this.handleChange} value={this.state.additional_info}/>
-                    </p>
+            <div className="content">
+                <Form onSubmit={event => this.handleSubmit(event)}>
+                    <Form.Group  as={Row}>
+                        <Form.Label  column sm="2">Tour name:</Form.Label>
+                        <Col sm="6">
+                        <Form.Control
+                            name="tour_name"
+                            type="text"
+                            onChange={this.handleChange} value={this.state.tour_name}/>
+                        </Col>
+                    </Form.Group>
+                    <Form.Group  as={Row}>
+                        <Form.Label  column sm="2">Country:</Form.Label>
+                        <Col sm="6">
+                            <Form.Control
+                                name="country"
+                                type="text"
+                                onChange={this.handleChange} value={this.state.country}/>
+                        </Col>
+                    </Form.Group>
+                    <Form.Group  as={Row}>
+                        <Form.Label  column sm="2">Date:</Form.Label>
+                        <Col sm="6">
+                            <Form.Control
+                                name="date"
+                                type="text"
+                                onChange={this.handleChange} value={this.state.date}/>
+                        </Col>
+                    </Form.Group>
+                    <Form.Group  as={Row}>
+                        <Form.Label  column sm="2">Duration:</Form.Label>
+                        <Col sm="6">
+                            <Form.Control
+                                name="duration"
+                                type="text"
+                                onChange={this.handleChange} value={this.state.duration}/>
+                        </Col>
+                    </Form.Group>
+                    <Form.Group  as={Row}>
+                        <Form.Label  column sm="2">Hotel Name:</Form.Label>
+                        <Col sm="6">
+                            <Form.Control
+                                name="hotel_name"
+                                type="text"
+                                onChange={this.handleChange} value={this.state.hotel_name}/>
+                        </Col>
+                    </Form.Group>
+                    <Form.Group  as={Row}>
+                        <Form.Label  column sm="2">Hotel Address:</Form.Label>
+                        <Col sm="6">
+                            <Form.Control
+                                name="hotel_address"
+                                type="text"
+                                onChange={this.handleChange} value={this.state.hotel_address}/>
+                        </Col>
+                    </Form.Group>
+                    <Form.Group  as={Row}>
+                        <Form.Label  column sm="2">Hotel Town:</Form.Label>
+                        <Col sm="6">
+                            <Form.Control
+                                name="hotel_town"
+                                type="text"
+                                onChange={this.handleChange} value={this.state.hotel_town}/>
+                        </Col>
+                    </Form.Group>
+                    <Form.Group  as={Row}>
+                        <Form.Label  column sm="2">Hotel Zip Code:</Form.Label>
+                        <Col sm="6">
+                            <Form.Control
+                                name="hotel_zip"
+                                type="text"
+                                onChange={this.handleChange} value={this.state.hotel_zip}/>
+                        </Col>
+                    </Form.Group>
+                    <Form.Group  as={Row}>
+                        <Form.Label  column sm="2">Hotel Website:</Form.Label>
+                        <Col sm="6">
+                            <Form.Control
+                                name="hotel_web"
+                                type="text"
+                                onChange={this.handleChange} value={this.state.hotel_web}/>
+                        </Col>
+                    </Form.Group>
+                    <Form.Group  as={Row}>
+                        <Form.Label  column sm="2">Hotel Email:</Form.Label>
+                        <Col sm="6">
+                            <Form.Control
+                                name="hotel_email"
+                                type="text"
+                                onChange={this.handleChange} value={this.state.hotel_email}/>
+                        </Col>
+                    </Form.Group>
+                    <Form.Group  as={Row}>
+                        <Form.Label  column sm="2">Hotel Telephone:</Form.Label>
+                        <Col sm="6">
+                            <Form.Control
+                                name="hotel_telephone"
+                                type="text"
+                                onChange={this.handleChange} value={this.state.hotel_telephone}/>
+                        </Col>
+                    </Form.Group>
+                    <Form.Group  as={Row}>
+                        <Form.Label  column sm="2">Hotel Fax:</Form.Label>
+                        <Col sm="6">
+                            <Form.Control
+                                name="hotel_fax"
+                                type="text"
+                                onChange={this.handleChange} value={this.state.hotel_fax}/>
+                        </Col>
+                    </Form.Group>
+                    <Form.Group  as={Row}>
+                    <Form.Label  column sm="2">Info:</Form.Label>
+                        <Col sm="6">
+                            <Form.Control as="textarea"
+                                name="additional_info"
+                                style={{height: '200px', width: '672px'}}
+                                type="text"
+                                onChange={this.handleChange} value={this.state.additional_info}/>
+                        </Col>
+                    </Form.Group>
                     <input type="submit" />
-                </form>
+                </Form>
                 {/* {this.state.text} */}
             </div>
         );

@@ -1,13 +1,16 @@
 import React from 'react';
+import CogLogo from '../components/cogLogo'
+import ColoredLine from '../components/coloredLine'
 
 export default function HomePage() {
     return (
         
         <div className="content">
 
-            <h1>Hey from HomePage</h1>
+            <h1>The GTR Club Europe administers this European COG area <CogLogo /></h1>
+            < ColoredLine color="#2F9B30" />
 
-            <p>This is your awesome HomePage subtitle</p>
+            <p>This is where GCE (or COG) members and Kawasaki GTR (or Concours)1000/1400 owners living or travelling in Europe, can find up to date information about:</p>
             <p>Advanced usage#</p>
 <p>See the Bootstrap docs for more advanced use cases and details about customizing stylesheets.</p>
 

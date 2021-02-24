@@ -6,6 +6,7 @@
 
 .logoMargin {
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 div.noMargin {
@@ -15,6 +16,7 @@ div.noMargin {
 
 .content {
   margin-left: 40px;
+  margin-right: 40px;
   margin-top: 20px;
   padding-top: 10px;
   max-height: 450px;
@@ -32,3 +34,10 @@ div.noMargin {
 h1 {
   color: #2F9B30;
 }
+
+div.rounded.float-left.col {
+  padding: 0%;
+ /* padding-left: 0px; */
+ /* padding-bottom: 10px; */
+}
+
