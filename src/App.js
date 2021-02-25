@@ -6,25 +6,11 @@ import Footer from './containers/Footer'
 import NavBar from './components/NavBar';
 import HomePage from './pages/HomePage'
 import About from './pages/About'
-import MembersContainer from './containers/MembersContainer';
-import { fetchMembers } from './actions/MemberActions';
-import { connect } from 'react-redux'
+import MembersContainer from './containers/MembersContainer'
 import MemberPage from './components/MemberPage'
-// import TourForm from './components/TourForm'
 
 
 class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      members: [],
-      tours: []
-    }
-  }
-
-  componentDidMount() {
-    this.props.fetchMembers() 
-  }
 
   render() {
     return (
@@ -48,4 +34,4 @@ class App extends Component {
   
 }
 
-export default connect(null,{fetchMembers})(App);
+export default App;

@@ -6,6 +6,7 @@ import { Redirect } from 'react-router-dom'
 import { deleteMember } from '../actions/MemberActions'
 import MemberDelete from './MemberDelete'
 import '../App.css'
+import Button from 'react-bootstrap/Button';
 
 class MemberPage extends Component {
 
@@ -48,7 +49,12 @@ class MemberPage extends Component {
     }
 
     render() {
-        const {members} = this.props
+        let {members} = this.props
+        if (members == undefined) {
+            return (
+                <Redirect to='/members' />
+            )
+        }
         var member = this.props.members.find(member => (member.id == this.props.match.params.id))
         if (this.state.isEditing) {
             return (
@@ -65,7 +71,6 @@ class MemberPage extends Component {
         return (
             <div className="content">
                 <h1>Member Info: {member.name}</h1>
-                <MemberDelete id={member.id} />
                 <table>
                 <tbody>
                     <tr>
@@ -135,7 +140,8 @@ class MemberPage extends Component {
                 </table>
                 <br></br>
                 
-                <button onClick={this.toggleEdit}>Edit Member</button>
+                <Button variant="success" onClick={this.toggleEdit}>Edit Member</Button>
+                <MemberDelete id={member.id} />
                 
             </div>
         );
