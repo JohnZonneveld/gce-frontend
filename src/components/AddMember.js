@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Form  from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import { connect } from 'react-redux'
-import { addMember} from '../actions/memberActions'
+import { addMember } from '../actions/MemberActions'
 
 class AddMember extends Component {
     
@@ -97,13 +97,4 @@ class AddMember extends Component {
     }
 }
 
-// const mapStateToProps = state => {
-
-//     return {
-//       members: state.members,
-//       loading: state.loading
-//     }
-// }
-
-// export default connect(mapStateToProps)(AddMember);
-export default AddMember
+export default connect (null, {addMember})(AddMember)

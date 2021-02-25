@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Member from '../components/Member'
-import MemberDelete from './MemberDelete'
-import Button from 'react-bootstrap/Button'
+// import MemberDelete from './MemberDelete'
+// import Button from 'react-bootstrap/Button'
 
 class MembersList extends Component {
     render() {

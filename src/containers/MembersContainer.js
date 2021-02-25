@@ -3,6 +3,8 @@ import MembersList from '../components/MembersList'
 import MemberAdd from '../components/MemberAdd'
 import { fetchMembers } from '../actions/MemberActions';
 import { connect } from 'react-redux'
+import Button from 'react-bootstrap/Button'
+import AddMember from '../components/AddMember'
 
 class MembersContainer extends Component {
     constructor(props) {
@@ -49,14 +51,20 @@ class MembersContainer extends Component {
     }
   
     render () {
-        return (
-            <div className="content">
-                <h1>Our Members</h1>
-                <MembersList />
-                <MemberAdd />
-          </div>
-        )
+        if (!this.state.isAdding) {
+            return (
+                <div className="content">
+                    <h1>Our Members</h1>
+                    <MembersList />
+                    <Button variant="success" onClick={this.toggleAdd}>Add Member</Button>
+              </div>
+            )
+        } else {
+            return (
+                <AddMember />
+            )
         }
+      }
 }
   
 export default connect(null, {fetchMembers})(MembersContainer)
