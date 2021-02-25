@@ -19,8 +19,7 @@ function reducer(state = { members: []}, action) {
           loading: false,
         }
       case "DELETE_MEMBER":
-        idx = state.findIndex(member => member.id === action.id);
-        return [...state.slice(0, idx), ...state.slice(idx + 1)];
+        return state.members.filter((member) => member.id !== action.payload);
  
       case "ADD_TOUR":
         return [...state, action.tour];

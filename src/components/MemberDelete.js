@@ -5,6 +5,7 @@ import { deleteMember } from "../actions/MemberActions";
 class MemberDelete extends Component {
   onClick = () => {
     this.props.deleteMember(this.props.id);
+    
   };
 
   render() {
@@ -18,4 +19,4 @@ class MemberDelete extends Component {
   }
 }
 
-export default connect(null, { deleteMember })(MemberDelete);
+export default connect(null,{deleteMember})(MemberDelete);

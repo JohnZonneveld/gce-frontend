@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import EditMember from './EditMember'
 import {connect} from 'react-redux'
 import { editMember } from '../actions/MemberActions'
-// import { deleteMember } from '../actions/MemberActions'
+import { Redirect } from 'react-router-dom'
+import { deleteMember } from '../actions/MemberActions'
 import MemberDelete from './MemberDelete'
 import '../App.css'
 
@@ -57,7 +58,6 @@ class MemberPage extends Component {
                 member={this.state.member} 
                 onSubmit={this.handleOnSubmit} 
                 onChange={this.updateMemberState}
-                // history={this.props.history}
                /> 
             </div>
             )

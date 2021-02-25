@@ -32,7 +32,7 @@ export const fetchMembers = () => {
         method: 'DELETE'
       })
       .then(res => res.json())
-      .then(member => dispatch({type: 'DELETE_MEMBER', payload: member}))
+      .then( dispatch({type: 'DELETE_MEMBER', payload: memberId}))
     }
   }
   

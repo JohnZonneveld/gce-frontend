@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Member from '../components/Member'
+import MemberDelete from './MemberDelete'
 
 class MembersList extends Component {
     render() {
@@ -15,7 +16,7 @@ class MembersList extends Component {
                     name ={member.name}
                     id = {member.id}
                     role = {member.role}
-                    />
+                />
             ) 
         
         )
