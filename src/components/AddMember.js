@@ -27,10 +27,22 @@ class AddMember extends Component {
         this.setState({ inputs: {} })
     }
 
+    onChange = (event) => {
+        this.setState({ member: {
+            ...this.state.member,
+            [event.target.name]: event.target.value
+        }
+        })
+    }
+
+    onSubmit = (event) => {
+        this.props.addMember(this.state.member)
+    }
+
     render() {
         return (
             <div className="content">
-                <Form onSubmit={this.props.onSubmit}>
+                <Form onSubmit={this.onSubmit}>
                     <Form.Group controlId="formBasicEmail">
                         <Form.Label> Name: </Form.Label>
                         <Form.Control
@@ -38,7 +50,7 @@ class AddMember extends Component {
                             name="name"
                             value={this.state.name}
                             placeholder="Name"
-                            onChange={this.props.onChange}
+                            onChange={this.onChange}
                         />
                         <Form.Label>Country: </Form.Label>
                         <Form.Control
@@ -46,7 +58,7 @@ class AddMember extends Component {
                             name="country"
                             value={this.state.country}
                             placeholder="Country"
-                            onChange={this.props.onChange}
+                            onChange={this.onChange}
                         />
                         <Form.Label>HomeTown: </Form.Label>
                         <Form.Control
@@ -54,7 +66,7 @@ class AddMember extends Component {
                             name="hometown"
                             value={this.state.hometown}
                             placeholder="Hometown"
-                            onChange={this.props.onChange}
+                            onChange={this.onChange}
                         />
                         <Form.Label>Bike: </Form.Label>
                         <Form.Control
@@ -62,7 +74,7 @@ class AddMember extends Component {
                             name="bike"
                             value={this.state.bike}
                             placeholder="Bike"
-                            onChange={this.props.onChange}
+                            onChange={this.onChange}
                         />
                         <Form.Label>Role: </Form.Label>
                         <Form.Control
@@ -70,7 +82,7 @@ class AddMember extends Component {
                             name="role"
                             value={this.state.role}
                             placeholder="Role"
-                            onChange={this.props.onChange}
+                            onChange={this.onChange}
                         />
                         <Form.Label>Bio: </Form.Label>
                         <Form.Control
@@ -78,15 +90,15 @@ class AddMember extends Component {
                             name="bio"
                             value={this.state.bio}
                             placeholder="Bio"
-                            onChange={this.props.onChange}
+                            onChange={this.onChange}
                         />
-                        <Form.Label>Birthday: </Form.Label>
+                        <Form.Label>Birthdate: </Form.Label>
                         <Form.Control
                             type="text"
                             name="birthday"
-                            value={this.state.birthday}
-                            placeholder="Birthday"
-                            onChange={this.props.onChange}
+                            value={this.state.birthdate}
+                            placeholder="Birthdate"
+                            onChange={this.onChange}
                         />
                     </Form.Group> 
                     <button type="submit">Submit</button>  

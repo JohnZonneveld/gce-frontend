@@ -1,12 +1,6 @@
 function reducer(state = { members: []}, action) {
     let idx;
     switch (action.type) {
-      // case "FETCH_MEMBERS":
-      //   return {...state, 
-      //     members: action.payload,
-      //     isLoading: false
-      //   }
-      
       case "FETCH_MEMBERS_SUCCESS":
         debugger
         return {
@@ -19,11 +13,15 @@ function reducer(state = { members: []}, action) {
           ...state,
           action.payload
         ]
-      case 'EDIT_MEMBER':
+      case 'UPDATE_MEMBER':
+        debugger
+        let indexMember = state.members.findIndex(member => member.id === action.member.id)
+        let updatedMember = action.member
         return {
-          ...state,
-          member: action.member,
-          loading: false,
+          ...state.members.slice(0,indexMember),
+          updatedMember,
+          ...state.members.slice(indexMember + 1),
+          isEditing: false
         }
       case "DELETE_MEMBER":
         return state.members.filter((member) => member.id !== action.payload);
