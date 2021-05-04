@@ -1,18 +1,19 @@
-function reducer(state = { members: []}, action) {
+export default function memberReducer(state = { members: []}, action) {
     let idx;
     switch (action.type) {
-      // case "FETCH_MEMBERS":
-      //   return {...state, 
-      //     members: action.payload,
-      //     isLoading: false
-      //   }
-      
       case "FETCH_MEMBERS_SUCCESS":
-        debugger
-        return {
-          ...state,
-          members: action.members
-        }
+            debugger
+            return action.members
+        
+    
+        case "FETCH_MEMBERS":
+            debugger
+            return {...state, 
+            members: action.members,
+            isLoading: false
+            }
+    
+        
         
       case "ADD_MEMBERS":
         return [
@@ -39,5 +40,3 @@ function reducer(state = { members: []}, action) {
         return state;
     }
   }
-
-  export default reducer

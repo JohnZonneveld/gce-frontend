@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import MembersList from '../components/MembersList'
-import MemberAdd from '../components/MemberAdd'
-import { fetchMembers } from '../actions/MemberActions';
+import MembersList from '../components/members/MembersList'
+import MemberAdd from '../components/members/MemberAdd'
+import { fetchMembers, addMember } from '../actions/memberActions';
 import { connect } from 'react-redux'
 import Button from 'react-bootstrap/Button'
-import AddMember from '../components/AddMember'
+import AddMember from '../components/members/AddMember'
 
-class MembersContainer extends Component {
+class MembersPage extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -15,12 +15,12 @@ class MembersContainer extends Component {
             isAdding: false
         }
         this.toggleAdd = this.toggleAdd.bind(this)
-        this.updateMemberState = this.updateMemberState.bind(this);
+        
         this.saveMember = this.saveMember.bind(this);
     }
 
     handleOnSubmit = (e)=> {
-        console.log('submit')
+        console.log('add submit')
         e.preventDefault()
         this.toggleAdd()
         this.props.addMember(this.state.member);
@@ -33,21 +33,13 @@ class MembersContainer extends Component {
         })
     }
 
-    updateMemberState(event) {
-        const field = event.target.name;
-        const member = this.state.member;
-        member[field] = event.target.value;
-        return this.setState({member: member});
-    }
-
     saveMember(event) {
         event.preventDefault();
         this.props.actions.updateMember(this.state.member);
     }
 
     componentDidMount() {
-        debugger
-        this.props.fetchMembers() 
+        this.props.loadMembers() 
     }
   
     render () {
@@ -61,10 +53,11 @@ class MembersContainer extends Component {
             )
         } else {
             return (
-                <AddMember />
+                <AddMember onSubmit={this.handleOnSubmit}/>
+                // test
             )
         }
       }
 }
   
-export default connect(null, {fetchMembers})(MembersContainer)
+export default connect(null, {fetchMembers, addMember})(MembersPage)

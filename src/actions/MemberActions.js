@@ -1,12 +1,16 @@
 export const fetchMembers = () => {
     return (dispatch) => {
-      dispatch({ type: 'FETCH_MEMBERS'})
       fetch("http://localhost:3000/members")
         .then(response =>  response.json())
-        .then(responseJSON => {
-          dispatch({ type: 'FETCH_MEMBERS', payload: responseJSON })
+        .then(members => {
+          debugger
+          dispatch({ type: 'FETCH_MEMBERS_SUCCESS', members })
       })
     }
+  }
+
+  export function loadMembersSuccess(members) {
+    return {type: 'FETCH_MEMBERS_SUCCESS', members};
   }
   
   export const addMember = member => {
@@ -51,7 +55,7 @@ export const fetchMembers = () => {
       })
         .then(response =>  response.json())
         .then(response => {
-          dispatch({ type: 'SHOW_MEMBER', response })
+          dispatch({ type: 'UPDATE_MEMBER', response })
       })
     }
   }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import EditMember from './EditMember'
+import MemberEdit from './MemberEdit'
 import {connect} from 'react-redux'
 import { editMember } from '../actions/MemberActions'
 import { Redirect } from 'react-router-dom'
@@ -17,15 +17,17 @@ class MemberPage extends Component {
             member: this.props.members.find(member => (member.id == this.props.match.params.id))
         }
         this.toggleEdit = this.toggleEdit.bind(this)
-        this.updateMemberState = this.updateMemberState.bind(this);
+        // this.updateMemberState = this.updateMemberState.bind(this);
         this.saveMember = this.saveMember.bind(this);
-    }    
+    } 
 
-    handleOnSubmit = (e)=> {
+    handleSubmit = (e)=> {
+        debugger
         console.log('submit')
+        debugger
         e.preventDefault()
-        this.toggleEdit()
         this.props.editMember(this.state.member);
+        this.toggleEdit()
     }
 
     toggleEdit() {
@@ -34,13 +36,13 @@ class MemberPage extends Component {
             isEditing: !this.state.isEditing
         })
     }
-
-    updateMemberState(event) {
-        // debugger
-        const field = event.target.name;
-        const member = this.state.member;
-        member[field] = event.target.value;
-        return this.setState({member: member});
+    
+    handleChange = event => {
+    this.setState({ member: {
+        ...this.state.member,
+        [event.target.name]: event.target.value
+    }
+    })
     }
 
     saveMember(event) {
@@ -60,11 +62,11 @@ class MemberPage extends Component {
             return (
             <div className="content">
               <h1>Edit member</h1>
-              <EditMember 
-                member={this.state.member} 
-                onSubmit={this.handleOnSubmit} 
-                onChange={this.updateMemberState}
-               /> 
+              <MemberEdit 
+                member={this.state.member}
+                handleChange={this.handleChange}
+                handleSubmit={this.handleSubmit} 
+                />        
             </div>
             )
         } else {
@@ -133,7 +135,7 @@ class MemberPage extends Component {
                         </td>
                         <td></td>
                         <td>
-                            {member.birthday}
+                            {member.birthdate}
                         </td>
                     </tr>
                     </tbody>

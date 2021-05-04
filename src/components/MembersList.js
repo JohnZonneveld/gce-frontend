@@ -13,11 +13,13 @@ class MembersList extends Component {
         
         return (
                 members.map(member => 
-                    <Member 
-                        name ={member.name}
-                        id = {member.id}
-                        role = {member.role}
-                    />
+                    <li key={member.id}>
+                        <Member 
+                            name = {member.name}
+                            id = {member.id}
+                            role = {member.role}
+                        />
+                    </li>
                 ) 
         )
         
