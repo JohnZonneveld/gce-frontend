@@ -7,22 +7,23 @@ import {fetchMembers} from '../actions/MemberActions'
 
 class MembersList extends Component {
 
-    componentWillMount() {
+    componentDidMount() {
         debugger
         console.log("firing")
-        if (this.props.members[0].id == '') {
+        // if (this.props.members[0].id == '') {
             this.props.fetchMembers();
-        }
+        // }
     }
 
     render() {
-        const { members } = this.props
+        debugger
+        const  members  = this.props.members
         if (!members) {
             return <p>Loading...</p>
         }
-        
-        return (
-                members.map(member => 
+        else {
+            return (
+                this.props.members.map(member => 
                     <li key={member.id}>
                         <Member 
                             name = {member.name}
@@ -31,29 +32,30 @@ class MembersList extends Component {
                         />
                     </li>
                 ) 
-        )
+            )
+        }
         
     }
 }
 
 const mapStateToProps = (state) => {
-    if (state.members.length > 0) {
+    // if (state.members.length > 0) {
         return { members: state.members }
-    } else {
-        return {
-            members: [{id: '', 
-                name: '', 
-                email: '',
-                hometown: '', 
-                country: ',',
-                role: '', 
-                bike: '', 
-                bio: '',
-                birthdate: '' 
-                //, tours: []
-            }]
-        }
-    }
+    // } else {
+    //     return {
+    //         members: [{id: '', 
+    //             name: '', 
+    //             email: '',
+    //             hometown: '', 
+    //             country: ',',
+    //             role: '', 
+    //             bike: '', 
+    //             bio: '',
+    //             birthdate: '' 
+    //             //, tours: []
+    //         }]
+    // }
+    // }
 
 }
 
