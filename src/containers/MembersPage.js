@@ -35,7 +35,7 @@ class MembersPage extends Component {
 
     saveMember(event) {
         event.preventDefault();
-        this.props.actions.updateMember(this.state.member);
+        this.props.updateMember(this.state.member);
     }
 
     componentDidMount() {

@@ -21,8 +21,10 @@ function reducer(state = { members: []}, action) {
           ...state.members.slice(0,indexMember),
           updatedMember,
           ...state.members.slice(indexMember + 1),
-          isEditing: false
+          isEditing: false,
+          isUpdated: true
         }
+        
       case "DELETE_MEMBER":
         return state.members.filter((member) => member.id !== action.payload);
  

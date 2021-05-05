@@ -56,7 +56,7 @@ export const editMember = (member) => {
         .then(member => {
           	dispatch({ type: 'UPDATE_MEMBER', member })
       	})
-		dispatch({ type: 'SHOW_MEMBER', member})
+		// dispatch({ type: 'SHOW_MEMBER', member})
     }
 }
   
@@ -72,3 +72,8 @@ export const fetchMember = (id) => {
     }
 }
 
+export const updateMember = (id) => {
+	return (dispatch) => {
+		debugger
+	}
+}

@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
 import MembersList from '../components/MembersList'
-import MemberAdd from '../components/MemberAdd'
-import { fetchMembers } from '../actions/MemberActions';
-import { connect } from 'react-redux'
 import Button from 'react-bootstrap/Button'
 import AddMember from '../components/AddMember'
 
@@ -12,7 +9,8 @@ class MembersContainer extends Component {
         this.state = {
             members: [],
             tours: [],
-            isAdding: false
+            isAdding: false,
+            isUpdated: false
         }
         this.toggleAdd = this.toggleAdd.bind(this)
         this.updateMemberState = this.updateMemberState.bind(this);
@@ -44,11 +42,6 @@ class MembersContainer extends Component {
         event.preventDefault();
         this.props.actions.updateMember(this.state.member);
     }
-
-    componentDidMount() {
-        debugger
-        this.props.fetchMembers() 
-    }
   
     render () {
         if (!this.state.isAdding) {
@@ -67,4 +60,4 @@ class MembersContainer extends Component {
       }
 }
   
-export default connect(null, {fetchMembers})(MembersContainer)
+export default MembersContainer

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import MemberEdit from './MemberEdit'
 import {connect} from 'react-redux'
-import { editMember } from '../actions/MemberActions'
+import { editMember, updateMember } from '../actions/MemberActions'
 import { Redirect } from 'react-router-dom'
 import { deleteMember } from '../actions/MemberActions'
 import MemberDelete from './MemberDelete'
@@ -47,7 +47,7 @@ class MemberPage extends Component {
 
     saveMember(event) {
         event.preventDefault();
-        this.props.actions.updateMember(this.state.member);
+        this.props.updateMember(this.state.member);
     }
 
     render() {
@@ -158,4 +158,4 @@ class MemberPage extends Component {
         }
     }
 
-export default connect(mapStateToProps, {editMember})(MemberPage)
+export default connect(mapStateToProps, {editMember, updateMember})(MemberPage)

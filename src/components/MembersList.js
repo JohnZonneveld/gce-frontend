@@ -3,8 +3,18 @@ import { connect } from 'react-redux'
 import Member from '../components/Member'
 // import MemberDelete from './MemberDelete'
 // import Button from 'react-bootstrap/Button'
+import {fetchMembers} from '../actions/MemberActions'
 
 class MembersList extends Component {
+
+    componentWillMount() {
+        debugger
+        console.log("firing")
+        if (this.props.members[0].id == '') {
+            this.props.fetchMembers();
+        }
+    }
+
     render() {
         const { members } = this.props
         if (!members) {
@@ -27,7 +37,24 @@ class MembersList extends Component {
 }
 
 const mapStateToProps = (state) => {
-    return { members: state.members }
+    if (state.members.length > 0) {
+        return { members: state.members }
+    } else {
+        return {
+            members: [{id: '', 
+                name: '', 
+                email: '',
+                hometown: '', 
+                country: ',',
+                role: '', 
+                bike: '', 
+                bio: '',
+                birthdate: '' 
+                //, tours: []
+            }]
+        }
+    }
+
 }
 
-export default connect(mapStateToProps)(MembersList)
+export default connect(mapStateToProps,{fetchMembers})(MembersList)
