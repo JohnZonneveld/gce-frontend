@@ -6,7 +6,7 @@ import Footer from '../containers/Footer'
 import NavBar from './NavBar';
 import HomePage from '../pages/HomePage'
 import About from '../pages/About'
-import MembersPage from '../containers/MembersPage'
+import MembersPage from '../containers/MembersPage_'
 import MemberPage from './members/MemberPage'
 import {fetchMembers} from '../actions/memberActions'
 
@@ -28,7 +28,10 @@ class App extends Component {
           <Route exact path='/members' component={MembersPage} />
           {/* <Route exact path='/members/add' component={AddMember} /> */}
           {/* <Route exact path='/members/:id/edit' component={EditMember} /> */}
-          <Route exact path='/members/:id' render={(props) => <MemberPage {...props} /> } />
+          {/* <Route exact path='/members/:id' render={(props) => <MemberPage {...props} /> } /> */}
+          <Route exact path='/members/:id' component={MemberPage} />
+
+
           {/* <Route exact path='/tours' component={TourList} /> */}
       </Switch>
       {/* <MemberForm /> */}

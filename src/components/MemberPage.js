@@ -1,30 +1,40 @@
 import React, { Component } from 'react'
-import MemberEdit from './MemberEdit'
 import {connect} from 'react-redux'
+import MemberEdit from './MemberEdit'
 import { editMember, updateMember } from '../actions/MemberActions'
 import { Redirect } from 'react-router-dom'
-import { deleteMember } from '../actions/MemberActions'
+// import { deleteMember } from '../actions/MemberActions'
 import MemberDelete from './MemberDelete'
 import '../App.css'
 import Button from 'react-bootstrap/Button';
 
 class MemberPage extends Component {
 
-    constructor(props) {
-        super(props)
+    // constructor(props, context) {
+    //     debugger
+    //     super(props, context)
+    //     this.state = {
+    //         isEditing: false,
+    //         member: this.props.members.find(member => (member.id == this.props.match.params.id))
+    //     }
+    //     this.toggleEdit = this.toggleEdit.bind(this)
+    //     this.updateMemberState = this.updateMemberState.bind(this);
+    //     this.saveMember = this.saveMember.bind(this);
+    // }
+    constructor(props, context) {
+        super(props, context);
         this.state = {
-            isEditing: false,
-            member: this.props.members.find(member => (member.id == this.props.match.params.id))
-        }
+            member: this.props.member, 
+            saving: false,
+            isEditing: false
+        };
         this.toggleEdit = this.toggleEdit.bind(this)
-        // this.updateMemberState = this.updateMemberState.bind(this);
-        this.saveMember = this.saveMember.bind(this);
     } 
 
     handleSubmit = (e)=> {
         debugger
         console.log('submit')
-        debugger
+        // debugger
         e.preventDefault()
         this.props.editMember(this.state.member);
         this.toggleEdit()
@@ -32,6 +42,7 @@ class MemberPage extends Component {
 
     toggleEdit() {
         console.log('edit clicked')
+        // debugger
         this.setState({
             isEditing: !this.state.isEditing
         })
@@ -50,14 +61,15 @@ class MemberPage extends Component {
         this.props.updateMember(this.state.member);
     }
 
-    render() {
-        let {members} = this.props
-        if (members == undefined) {
-            return (
-                <Redirect to='/members' />
-            )
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.members !== this.state.members) {
+            console.log('members state has changed')
         }
-        var member = this.props.members.find(member => (member.id == this.props.match.params.id))
+    }
+
+    render() {
+        // debugger
+        var member = this.props.member
         if (this.state.isEditing) {
             return (
             <div className="content">
@@ -152,9 +164,17 @@ class MemberPage extends Component {
         
     }
 
-    const mapStateToProps = (state) => {
-        return { 
-            members: state.members 
+    const mapStateToProps = (state, ownProps) => {
+        let memberToDisplay = {name: '', hometown: '', country: '', bike: '', email: '', bio: '', birthdate: '', role: '', id: ''}
+        const memberId = ownProps.match.params.id
+        // debugger
+        if (state.members.length > 0) {
+            memberToDisplay = Object.assign({}, state.members.find(member => member.id == memberId))
+            return { 
+                member: memberToDisplay
+            }
+        } else {
+            // debugger
         }
     }
 
