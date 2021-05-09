@@ -63,7 +63,7 @@ export function deleteMemberSuccess(member) {
 	
 }
   
-export const editMember = (member) => {
+export const editMember = (member, history) => {
     debugger
     return (dispatch) => {
       	dispatch({type: "EDIT_MEMBER"})

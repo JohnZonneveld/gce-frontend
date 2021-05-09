@@ -20,12 +20,12 @@ class MemberPage extends Component {
         this.deleteMember = this.deleteMember.bind(this);
     } 
 
-    handleEditingSubmit = (e)=> {
+    handleEditSubmit = (e)=> {
         debugger
         console.log('submit')
         // debugger
         e.preventDefault()
-        this.props.editMember(this.state.member);
+        this.props.editMember(this.state.member,this.history);
         this.toggleEdit()
     }
 
@@ -80,7 +80,7 @@ class MemberPage extends Component {
               <MemberEdit 
                 member={this.state.member}
                 handleChange={this.handleChange}
-                handleSubmit={this.handleSubmit} 
+                handleSubmit={this.handleEditSubmit} 
                 />        
             </div>
             )
@@ -175,14 +175,15 @@ class MemberPage extends Component {
 
     const mapStateToProps = (state, ownProps) => {
         debugger
-        debugger
         if (state.members.length > 0) {
             const memberId = ownProps.match.params.id
             const memberToDisplay = Object.assign({}, state.members.find(member => member.id == memberId))
             return { 
                 member: memberToDisplay
             }
-        } 
+        } else {
+            debugger 
+        }
     }
 
 export default connect(mapStateToProps, {editMember, updateMember, deleteMember})(MemberPage)

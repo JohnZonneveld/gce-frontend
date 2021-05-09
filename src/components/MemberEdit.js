@@ -5,6 +5,7 @@ import { Button, Container, Form, Col } from 'react-bootstrap'
 class MemberEdit extends Component {
 
     render() {
+        debugger
         return (
             <div className="content">
                 <Container>
