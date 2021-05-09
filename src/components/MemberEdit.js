@@ -102,12 +102,4 @@ class MemberEdit extends Component {
     }
 }
 
-// const mapStateToProps = state => {
-
-//     return {
-//       members: state.members,
-//       loading: state.loading
-//     }
-// }
-
   export default MemberEdit

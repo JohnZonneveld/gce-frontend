@@ -23,16 +23,13 @@ class MemberPage extends Component {
     handleEditSubmit = (e)=> {
         debugger
         console.log('submit')
-        // debugger
         e.preventDefault()
         this.props.editMember(this.state.member,this.history);
         this.toggleEdit()
     }
 
     handleAddingSubmit = (e)=> {
-        debugger
         console.log('submit')
-        // debugger
         e.preventDefault()
         this.props.createMember(this.state.member);
         this.toggleAdd()
@@ -40,7 +37,6 @@ class MemberPage extends Component {
 
     toggleEdit() {
         console.log('edit clicked')
-        // debugger
         this.setState({
             isEditing: !this.state.isEditing
         })
@@ -71,119 +67,116 @@ class MemberPage extends Component {
     }
 
     render() {
-        // debugger
         var member = this.props.member
         if (this.state.isEditing) {
             return (
             <div className="content">
-              <h1>Edit member</h1>
-              <MemberEdit 
-                member={this.state.member}
-                handleChange={this.handleChange}
-                handleSubmit={this.handleEditSubmit} 
+                <h1>Edit member</h1>
+                <MemberEdit 
+                    member={this.state.member}
+                    handleChange={this.handleChange}
+                    handleSubmit={this.handleEditSubmit} 
                 />        
             </div>
             )
-
         } else {
-        return (
-            <div className="content">
-                <h1>Member Info: {member.name}</h1>
-                <table>
-                <tbody>
-                    <tr>
-                        <td>
-                            Name:
-                        </td>
-                        <td></td>
-                        <td>
-                            {member.name}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Country:
-                        </td>
-                        <td></td>
-                        <td>
-                            {member.country}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Home Town:
-                        </td>
-                        <td></td>
-                        <td>
-                            {member.hometown}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Bike:
-                        </td>
-                        <td></td>
-                        <td>
-                            {member.bike}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Role in Club:
-                        </td>
-                        <td></td>
-                        <td>
-                            {member.role}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Bio:
-                        </td>
-                        <td></td>
-                        <td>
-                            {member.bio}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Birthday:
-                        </td>
-                        <td></td>
-                        <td>
-                            {member.birthdate}
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-                <br></br>
-                
-                <Button variant="success" onClick={this.toggleEdit}> Edit </Button>
-                <Button 
-                    variant="danger"
-                    onClick={this.deleteMember} 
-                    className="btn btn-default">
-                    Delete
-                </Button>
-                
-            </div>
-        );
+            return (
+                <div className="content">
+                    <h1>Member Info: {member.name}</h1>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    Name:
+                                </td>
+                                <td></td>
+                                <td>
+                                    {member.name}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Country:
+                                </td>
+                                <td></td>
+                                <td>
+                                    {member.country}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Home Town:
+                                </td>
+                                <td></td>
+                                <td>
+                                    {member.hometown}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Bike:
+                                </td>
+                                <td></td>
+                                <td>
+                                    {member.bike}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Role in Club:
+                                </td>
+                                <td></td>
+                                <td>
+                                    {member.role}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Bio:
+                                </td>
+                                <td></td>
+                                <td>
+                                    {member.bio}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Birthday:
+                                </td>
+                                <td></td>
+                                <td>
+                                    {member.birthdate}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br></br>
+                    
+                    <Button variant="success" onClick={this.toggleEdit}> Edit </Button>
+                    <Button 
+                        variant="danger"
+                        onClick={this.deleteMember} 
+                        className="btn btn-default">
+                        Delete
+                    </Button>
+                    
+                </div>
+            );
         }
-    }
-        
-    }
+    }   
+}
 
-    const mapStateToProps = (state, ownProps) => {
-        debugger
-        if (state.members.length > 0) {
-            const memberId = ownProps.match.params.id
-            const memberToDisplay = Object.assign({}, state.members.find(member => member.id == memberId))
-            return { 
-                member: memberToDisplay
-            }
-        } else {
-            debugger 
+const mapStateToProps = (state, ownProps) => {
+    debugger
+    if (state.members.length > 0) {
+        const memberId = ownProps.match.params.id
+        const memberToDisplay = Object.assign({}, state.members.find(member => member.id == memberId))
+        return { 
+            member: memberToDisplay
         }
+    } else {
+        debugger 
     }
+}
 
 export default connect(mapStateToProps, {editMember, updateMember, deleteMember})(MemberPage)

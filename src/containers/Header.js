@@ -4,7 +4,6 @@ import Logo from '../components/Logo'
 import { Container, Row, Col } from 'react-bootstrap'
 import '../App.css'
 
-
 function Header() {
 
     return (

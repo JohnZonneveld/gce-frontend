@@ -27,15 +27,14 @@ export const createMember = (member, history) => {
         .then(member => {
 			dispatch(createMemberSuccess(member))
 			history.push(`/members/${member.id}`)
-		 })
-		 return member
+		})
+		return member
     }
 }
 
 export function createMemberSuccess(member) {
 	debugger
 	return {type: 'CREATE_MEMBER_SUCCESS', member}
-	
 }
   
 export const deleteMember = (member, history) => {
@@ -48,14 +47,13 @@ export const deleteMember = (member, history) => {
   		.then(member => {
 			dispatch(deleteMemberSuccess(member))
 			history.push(`/members`)
-		 })
+		})
     }
 }
 
 export function deleteMemberSuccess(member) {
 	debugger
 	return {type: 'DELETE_MEMBER_SUCCESS', member}
-	
 }
   
 export const editMember = (member, history) => {

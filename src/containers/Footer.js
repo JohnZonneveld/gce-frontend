@@ -18,6 +18,4 @@ import '../App.css'
     );
 }
 
-
-
 export default Footer

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import Member from '../components/Member'
 import {Link} from 'react-router-dom';
 
 const MembersList = ({members}) => {

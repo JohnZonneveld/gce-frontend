@@ -13,16 +13,16 @@ import reducer from './reducers/reducer'
 // createStore needs some more config when adding middleware
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
-     reducer, /* preloadedState, */ composeEnhancers(
-     applyMiddleware(thunk))
+		 reducer, /* preloadedState, */ composeEnhancers(
+		 applyMiddleware(thunk))
 );
 
 ReactDOM.render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <App/>
-    </BrowserRouter>
-  </Provider>, document.getElementById('root')
+	<Provider store={store}>
+		<BrowserRouter>
+			<App/>
+		</BrowserRouter>
+	</Provider>, document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

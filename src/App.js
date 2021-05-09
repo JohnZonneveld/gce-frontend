@@ -26,7 +26,6 @@ class App extends Component {
 					<Route exact path='/members/:id' component={MemberPage} />
 					{/* <Route exact path='/tours' component={TourList} /> */}
 				</Switch>
-				{/* <MemberForm /> */}
 				<Footer />
 			</div>
 		);

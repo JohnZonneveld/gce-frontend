@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
-// import Form  from 'react-bootstrap/Form'
-// import Button from 'react-bootstrap/Button'
 import { connect } from 'react-redux'
 import { createMember } from '../actions/MemberActions'
-// import MemberPage from './MemberPage'
 import MemberForm from './MemberForm'
 
 class MemberAdd extends Component {

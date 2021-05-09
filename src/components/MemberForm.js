@@ -7,40 +7,11 @@ class MemberForm extends Component {
     constructor(props) {
         debugger
         super(props);
-        // // this.state = {
-        // //     name: '',
-        // //     country: '',
-        // //     hometown: '',
-        // //     bike: '',
-        // //     role: '',
-        // //     email: '',
-        // //     bio: '',
-        // //     birthdate: ''
-        // };
     }
- 
-    // handleChange = event => {
-    //     this.setState({
-    //         [event.target.name]: event.target.value
-    //     });
-    // }
 
-    // handleSubmit = event => {
-    //     event.preventDefault();
-    //     const { editMode, member } = this.props
-    //     const title = this.titleRef.value
-    //     const body = this.bodyRef.value
-    //     if (this.props.addM === true) {
-    //         this.props.addMember(this.state);
-    //     } else {
-    //         this.props.editMember(this.state)
-    //     }
-    //   };
- 
     render() {
         debugger
         return(
-            
             <div className="content">
                 <Form onSubmit={event => this.props.onSubmit(event)}>
                     <Form.Group as={Row} >
