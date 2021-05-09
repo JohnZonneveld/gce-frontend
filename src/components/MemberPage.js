@@ -1,43 +1,41 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import MemberEdit from './MemberEdit'
-import { editMember, updateMember } from '../actions/MemberActions'
-import { Redirect } from 'react-router-dom'
-// import { deleteMember } from '../actions/MemberActions'
-import MemberDelete from './MemberDelete'
+import { editMember, updateMember, deleteMember } from '../actions/MemberActions'
 import '../App.css'
 import Button from 'react-bootstrap/Button';
 
 class MemberPage extends Component {
 
-    // constructor(props, context) {
-    //     debugger
-    //     super(props, context)
-    //     this.state = {
-    //         isEditing: false,
-    //         member: this.props.members.find(member => (member.id == this.props.match.params.id))
-    //     }
-    //     this.toggleEdit = this.toggleEdit.bind(this)
-    //     this.updateMemberState = this.updateMemberState.bind(this);
-    //     this.saveMember = this.saveMember.bind(this);
-    // }
     constructor(props, context) {
+        debugger
         super(props, context);
         this.state = {
             member: this.props.member, 
             saving: false,
-            isEditing: false
+            isEditing: false,
+            isAdding: false
         };
         this.toggleEdit = this.toggleEdit.bind(this)
+        this.deleteMember = this.deleteMember.bind(this);
     } 
 
-    handleSubmit = (e)=> {
+    handleEditingSubmit = (e)=> {
         debugger
         console.log('submit')
         // debugger
         e.preventDefault()
         this.props.editMember(this.state.member);
         this.toggleEdit()
+    }
+
+    handleAddingSubmit = (e)=> {
+        debugger
+        console.log('submit')
+        // debugger
+        e.preventDefault()
+        this.props.createMember(this.state.member);
+        this.toggleAdd()
     }
 
     toggleEdit() {
@@ -61,6 +59,11 @@ class MemberPage extends Component {
         this.props.updateMember(this.state.member);
     }
 
+    deleteMember(event) {
+        debugger
+        this.props.deleteMember(this.state.member, this.props.history)
+    }
+
     componentDidUpdate(prevProps, prevState) {
         if (prevState.members !== this.state.members) {
             console.log('members state has changed')
@@ -81,6 +84,7 @@ class MemberPage extends Component {
                 />        
             </div>
             )
+
         } else {
         return (
             <div className="content">
@@ -154,8 +158,13 @@ class MemberPage extends Component {
                 </table>
                 <br></br>
                 
-                <Button variant="success" onClick={this.toggleEdit}>Edit Member</Button>
-                <MemberDelete id={member.id} />
+                <Button variant="success" onClick={this.toggleEdit}> Edit </Button>
+                <Button 
+                    variant="danger"
+                    onClick={this.deleteMember} 
+                    className="btn btn-default">
+                    Delete
+                </Button>
                 
             </div>
         );
@@ -165,17 +174,15 @@ class MemberPage extends Component {
     }
 
     const mapStateToProps = (state, ownProps) => {
-        let memberToDisplay = {name: '', hometown: '', country: '', bike: '', email: '', bio: '', birthdate: '', role: '', id: ''}
-        const memberId = ownProps.match.params.id
-        // debugger
+        debugger
+        debugger
         if (state.members.length > 0) {
-            memberToDisplay = Object.assign({}, state.members.find(member => member.id == memberId))
+            const memberId = ownProps.match.params.id
+            const memberToDisplay = Object.assign({}, state.members.find(member => member.id == memberId))
             return { 
                 member: memberToDisplay
             }
-        } else {
-            // debugger
-        }
+        } 
     }
 
-export default connect(mapStateToProps, {editMember, updateMember})(MemberPage)
+export default connect(mapStateToProps, {editMember, updateMember, deleteMember})(MemberPage)

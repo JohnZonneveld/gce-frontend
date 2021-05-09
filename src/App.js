@@ -8,7 +8,7 @@ import HomePage from './pages/HomePage'
 import About from './pages/About'
 import MembersPage from './containers/MembersPage'
 import MemberPage from './components/MemberPage'
-// import MemberAdd from './components/MemberAdd'
+import MemberAdd from './components/MemberAdd'
 
 
 class App extends Component {
@@ -22,9 +22,7 @@ class App extends Component {
 					<Route exact path='/' component={HomePage} />
 					<Route exact path='/about' component={About}/>
 					<Route exact path='/members' component={MembersPage} />
-					{/* <Route exact path='/members/new' component={MemberAdd} /> */}
-					{/* <Route exact path='/members/:id/edit' component={EditMember} /> */}
-					{/* <Route exact path='/members/:id' render={(props) => <MemberPage {...props} /> } /> */}
+					<Route exact path='/members/new' component={MemberAdd} />
 					<Route exact path='/members/:id' component={MemberPage} />
 					{/* <Route exact path='/tours' component={TourList} /> */}
 				</Switch>

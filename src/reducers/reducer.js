@@ -8,12 +8,22 @@ function reducer(state = { members: []}, action) {
           members: action.members
         }
         
-      case "ADD_MEMBERS":
+      // case "ADD_MEMBERS":
+      //   debugger
+      //   return [
+      //     ...state,
+      //     action.payload
+      //   ]
+
+      case "CREATE_MEMBER_SUCCESS":
         debugger
-        return [
-          ...state,
-          action.payload
-        ]
+        let tempMembers = state.members
+          tempMembers.push(action.member)
+          return {
+            ...state,
+            members: tempMembers
+          }
+
       case 'UPDATE_MEMBER':
         debugger
         let indexOfMember = state.members.findIndex(member => member.id === action.member.id)
@@ -27,9 +37,11 @@ function reducer(state = { members: []}, action) {
           isUpdated: true
         }
 
-      case "DELETE_MEMBER":
+      case "DELETE_MEMBER_SUCCESS":
         debugger
-        return state.members.filter((member) => member.id !== action.payload);
+        return {...state,
+          members: state.members.filter((member) => member.id !== action.member.id)
+        }
  
       case "ADD_TOUR":
         debugger

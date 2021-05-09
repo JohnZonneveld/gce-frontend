@@ -13,7 +13,7 @@ export function fetchMembersSuccess(members) {
     return {type: 'FETCH_MEMBERS_SUCCESS', members};
 }
   
-export const addMember = member => {
+export const createMember = (member, history) => {
     return (dispatch) => {
         dispatch({type: "ADD_MEMBER"})
         fetch ("http://localhost:3000/members", {
@@ -25,18 +25,42 @@ export const addMember = member => {
             }
         })
         .then(res => res.json())
-        .then(member => dispatch({type: "MEMBER_ADDED", payload: member}))
+        .then(member => {
+			dispatch(createMemberSuccess(member))
+			history.push(`/members/${member.id}`)
+		 })
+		 return member
     }
 }
+
+export function createMemberSuccess(member) {
+	debugger
+	return {type: 'CREATE_MEMBER_SUCCESS', member}
+	
+}
   
-export const deleteMember = (memberId) => {
+export const deleteMember = (member, history) => {
+	debugger
     return (dispatch) => {
-      	return fetch(`http://localhost:3000/members/${memberId}`, {
+      	return fetch(`http://localhost:3000/members/${member.id}`, {
         	method: 'DELETE'
       	})
       	.then(res => res.json())
-      	.then( dispatch({type: 'DELETE_MEMBER', payload: memberId}))
+      	// .then( member => {
+		// 	  return({type: 'DELETE_MEMBER_SUCCESS', payload: memberId})
+		// 	  history.push(`/members`)
+		//   })
+		.then(member => {
+			dispatch(deleteMemberSuccess(member))
+			history.push(`/members`)
+		 })
     }
+}
+
+export function deleteMemberSuccess(member) {
+	debugger
+	return {type: 'DELETE_MEMBER_SUCCESS', member}
+	
 }
   
 export const editMember = (member) => {
@@ -56,7 +80,6 @@ export const editMember = (member) => {
         .then(member => {
           	dispatch({ type: 'UPDATE_MEMBER', member })
       	})
-		// dispatch({ type: 'SHOW_MEMBER', member})
     }
 }
   

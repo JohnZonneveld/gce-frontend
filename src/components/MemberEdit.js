@@ -61,6 +61,16 @@ class MemberEdit extends Component {
                                 placeholder="Role"
                                 onChange={event => this.props.handleChange(event)}
                             />
+                            <Form.Label column sm="10">
+                                Email: 
+                            </Form.Label>
+                            <Form.Control 
+                                type="text"
+                                name="email"
+                                value={this.props.member.email}
+                                placeholder="Email"
+                                onChange={event => this.props.handleChange(event)}
+                            />
                             <Form.Label column sm="2">
                                 Bio:
                             </Form.Label>
