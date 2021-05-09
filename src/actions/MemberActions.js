@@ -3,7 +3,6 @@ export const fetchMembers = () => {
       	fetch("http://localhost:3000/members")
         .then(response =>  response.json())
         .then(members => {
-          	// debugger
           	dispatch({ type: 'FETCH_MEMBERS_SUCCESS', members })
       	})
     }
@@ -46,11 +45,7 @@ export const deleteMember = (member, history) => {
         	method: 'DELETE'
       	})
       	.then(res => res.json())
-      	// .then( member => {
-		// 	  return({type: 'DELETE_MEMBER_SUCCESS', payload: memberId})
-		// 	  history.push(`/members`)
-		//   })
-		.then(member => {
+  		.then(member => {
 			dispatch(deleteMemberSuccess(member))
 			history.push(`/members`)
 		 })
@@ -71,7 +66,7 @@ export const editMember = (member, history) => {
       	fetch(`http://localhost:3000/members/${member.id}`, {
         	headers: {
           		'Content-Type': 'application/json',
-          		// 'Accept': 'application/json'
+          		'Accept': 'application/json'
         	},
         	method: 'PATCH',
         	body: JSON.stringify({member: member})
