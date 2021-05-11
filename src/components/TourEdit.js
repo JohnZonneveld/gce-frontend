@@ -15,7 +15,8 @@ class TourEdit extends Component {
         let selectedMember = this.props.members.filter(member => {
             return member.id === this.props.tour.member_id
           })
-        const currentmemberobject = this.props.members.filter(member => member.id === this.props.tour.member_id)
+        const currentMemberObject = this.props.members.filter(member => member.id === this.props.tour.member_id)
+        debugger
         return (
             <div className="content">
                 <Container>
@@ -51,9 +52,8 @@ class TourEdit extends Component {
                                 return { value : member.name, label: member.name, target: {value: member.id, name: "member_id"}}
                                 })}
                                 onChange={event => this.props.handleChange(event)} 
-                                // let id={this.props.tour.member_id}
-                                // currentmemberobject={this.props.members.filter(member => member.id === this.props.tour.member_id)}
-                                value={selectedMember.name}
+                                defaultValue={{label: currentMemberObject[0].name, value: currentMemberObject[0].name}}
+                                // defaultValue={{ label: 2002, value: 2002 }}
                                 name="member_id"
                             >
                                 
