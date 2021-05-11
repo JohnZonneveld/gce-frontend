@@ -75,21 +75,20 @@ export const editMember = (member, history) => {
       	})
     }
 }
-  
-export const fetchMember = (id) => {
-    return (dispatch) => {
-		dispatch({ type: 'LOADING_MEMBERS'})
-		fetch(`http://localhost:3000/members/${id}`)
-        .then(response =>  response.json())
-        .then(responseJSON => {
-			debugger
-			dispatch({ type: 'SHOW_MEMBER', member: responseJSON })
-      	})
-    }
-}
 
 export const updateMember = (id) => {
 	return (dispatch) => {
 		debugger
 	}
+}
+
+export const fetchTours = () => {
+	debugger
+    return (dispatch) => {
+      	fetch("http://localhost:3000/tours")
+        .then(response =>  response.json())
+        .then(tours => {
+          	dispatch({ type: 'FETCH_TOURSS_SUCCESS', tours })
+      	})
+    }
 }

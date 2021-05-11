@@ -8,7 +8,8 @@ import HomePage from '../pages/HomePage'
 import About from '../pages/About'
 import MembersPage from '../containers/MembersPage_'
 import MemberPage from './members/MemberPage'
-import {fetchMembers} from '../actions/memberActions'
+import ToursPage from '../containers/ToursPage'
+import TourPage from './TourPage'
 
 class App extends Component {
 
@@ -22,7 +23,8 @@ class App extends Component {
 				<Route exact path='/about' component={About}/>
 				<Route exact path='/members' component={MembersPage} />
 				<Route exact path='/members/:id' component={MemberPage} />
-				{/* <Route exact path='/tours' component={TourList} /> */}
+				<Route exact path='/tours' component={ToursPage} />
+				<Route exact path='/tours/:id' component={TourPage}/>
 			</Switch>
 			<Footer />
 		</div>

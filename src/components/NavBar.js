@@ -44,13 +44,13 @@ class NavBar extends React.Component {
 					}}
 				>Members</NavLink>
 				<NavLink
-					to="/events"
+					to="/tours"
 					exact
 					style={link}
 					activeStyle={{
 						background: 'darkgreen'
 					}}
-				>Events</NavLink>
+				>Tours</NavLink>
 			</div>
 		)
 	}

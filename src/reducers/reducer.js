@@ -1,4 +1,4 @@
-function reducer(state = { members: []}, action) {
+function reducer(state = { members: [], tours: []}, action) {
 	let idx;
 	switch (action.type) {
 		case "FETCH_MEMBERS_SUCCESS":
@@ -32,6 +32,12 @@ function reducer(state = { members: []}, action) {
 			debugger
 			return {...state,
 				members: state.members.filter((member) => member.id !== action.member.id)
+			}
+
+		case "FETCH_TOURS_SUCCESS":
+			return {
+				...state,
+				tours: action.tours
 			}
 
 		case "ADD_TOUR":
