@@ -1,23 +1,29 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { createMember } from '../actions/MemberActions'
-import MemberForm from './MemberForm'
+import { createTour } from '../actions/TourActions'
+import TourForm from './TourForm'
 
-class MemberAdd extends Component {
+class TourAdd extends Component {
     
     constructor(props) {
         super(props)
 
         this.state = {
-            member: {
+            tour: {
                 name: '',
                 country: '',
-                hometown: '',
-                email: '',
-                bike: '',
-                role: '',
-                bio: '',
-                birthday: ''
+                member_id: '',
+                date: '',
+                duration: '',
+                hotel_name: '',
+                hotel_address: '',
+                hotel_town: '',
+                hotel_zipcode: '',
+                hotel_website: '',
+                hotel_email: '',
+                hotel_telephone: '',
+                hotel_fax: '',
+                additional_info: ''
             },
             // saving: false,
             isAdding: true
@@ -28,14 +34,14 @@ class MemberAdd extends Component {
 
     async handleSubmit(event) {
         event.preventDefault();
-        let testMember = await this.props.createMember(this.state.member, this.props.history)
+        let testTour = await this.props.createTour(this.state.tour, this.props.history)
     }
 
     handleChange = event => {
         debugger
         this.setState({ 
-            member: {
-                ...this.state.member,
+            tour: {
+                ...this.state.tour,
                 [event.target.name]: event.target.value
             }
         })
@@ -45,8 +51,8 @@ class MemberAdd extends Component {
         debugger
         return (
             <div>
-                <MemberForm 
-                    member = {this.state.member}
+                <TourForm 
+                    tour = {this.state.tour}
                     onSubmit={this.handleSubmit}
                     onChange={this.handleChange}
                 />
@@ -55,4 +61,4 @@ class MemberAdd extends Component {
     }
 }
 
-export default connect (null,{createMember})(MemberAdd)
+export default connect (null,{createTour})(TourAdd)

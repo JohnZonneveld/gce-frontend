@@ -1,44 +1,29 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import { Form, Col, Row } from 'react-bootstrap';
+import Select from 'react-select'
  
 class TourForm extends Component {
  
-    constructor() {
-        super();
-        this.state = {
-            name: '',
-            country: '',
-            date: '',
-            duration: '',
-            hotel_name: '',
-            hotel_address: '',
-            hotel_town: '',
-            hotel_zipcode: '',
-            hotel_web: '',
-            hotel_email: '',
-            hotel_telephone: '',
-            hotel_fax: '',
-            additional_info: ''
-        };
-    }
- 
-    handleChange = event => {
-        this.setState({
-            [event.target.name]: event.target.value
-        });
+    constructor(props) {
+        super(props);
+        // this.state = {
+            
+        // };
     }
  
     render() {
+        debugger
         return(
             <div className="content">
-                <Form onSubmit={event => this.handleSubmit(event)}>
+                <Form onSubmit={event => this.props.onSubmit(event)}>
                     <Form.Group  as={Row}>
                         <Form.Label  column sm="2">Tour name:</Form.Label>
                         <Col sm="6">
-                        <Form.Control
-                            name="tour_name"
-                            type="text"
-                            onChange={this.handleChange} value={this.state.tour_name}/>
+                            <Form.Control
+                                name="name"
+                                type="text"
+                                onChange={this.props.onChange} value={this.props.tour_name}/>
                         </Col>
                     </Form.Group>
                     <Form.Group  as={Row}>
@@ -47,16 +32,37 @@ class TourForm extends Component {
                             <Form.Control
                                 name="country"
                                 type="text"
-                                onChange={this.handleChange} value={this.state.country}/>
+                                onChange={this.props.onChange} value={this.props.country}/>
                         </Col>
                     </Form.Group>
+                    <Form.Label column sm="2">
+                                Organizer: 
+                            </Form.Label>
+                            
+                            <Select 
+                                options={this.props.members.map(member => {
+                                return { value : member.name, label: member.name, target: {value: member.id, name: "member_id"}}
+                                })}
+                                onChange={event => this.props.onChange(event)} 
+                                // defaultValue={{label: currentMemberObject[0].name, value: currentMemberObject[0].name}}
+                                name="member_id"
+                            >          
+                                {this.props.members.map(member => (
+                                    <option 
+                                        member_id={member.id} 
+                                        value={member.id} 
+                                    >
+                                        {member.name}
+                                    </option>
+                                ))}
+                            </Select>
                     <Form.Group  as={Row}>
                         <Form.Label  column sm="2">Date:</Form.Label>
                         <Col sm="6">
                             <Form.Control
                                 name="date"
                                 type="text"
-                                onChange={this.handleChange} value={this.state.date}/>
+                                onChange={this.props.onChange} value={this.props.date}/>
                         </Col>
                     </Form.Group>
                     <Form.Group  as={Row}>
@@ -65,7 +71,7 @@ class TourForm extends Component {
                             <Form.Control
                                 name="duration"
                                 type="text"
-                                onChange={this.handleChange} value={this.state.duration}/>
+                                onChange={this.props.onChange} value={this.props.duration}/>
                         </Col>
                     </Form.Group>
                     <Form.Group  as={Row}>
@@ -74,7 +80,7 @@ class TourForm extends Component {
                             <Form.Control
                                 name="hotel_name"
                                 type="text"
-                                onChange={this.handleChange} value={this.state.hotel_name}/>
+                                onChange={this.props.onChange} value={this.props.hotel_name}/>
                         </Col>
                     </Form.Group>
                     <Form.Group  as={Row}>
@@ -83,7 +89,7 @@ class TourForm extends Component {
                             <Form.Control
                                 name="hotel_address"
                                 type="text"
-                                onChange={this.handleChange} value={this.state.hotel_address}/>
+                                onChange={this.props.onChange} value={this.props.hotel_address}/>
                         </Col>
                     </Form.Group>
                     <Form.Group  as={Row}>
@@ -92,7 +98,7 @@ class TourForm extends Component {
                             <Form.Control
                                 name="hotel_town"
                                 type="text"
-                                onChange={this.handleChange} value={this.state.hotel_town}/>
+                                onChange={this.props.onChange} value={this.props.hotel_town}/>
                         </Col>
                     </Form.Group>
                     <Form.Group  as={Row}>
@@ -101,7 +107,7 @@ class TourForm extends Component {
                             <Form.Control
                                 name="hotel_zip"
                                 type="text"
-                                onChange={this.handleChange} value={this.state.hotel_zip}/>
+                                onChange={this.props.onChange} value={this.props.hotel_zip}/>
                         </Col>
                     </Form.Group>
                     <Form.Group  as={Row}>
@@ -110,7 +116,7 @@ class TourForm extends Component {
                             <Form.Control
                                 name="hotel_web"
                                 type="text"
-                                onChange={this.handleChange} value={this.state.hotel_web}/>
+                                onChange={this.props.onChange} value={this.props.hotel_web}/>
                         </Col>
                     </Form.Group>
                     <Form.Group  as={Row}>
@@ -119,7 +125,7 @@ class TourForm extends Component {
                             <Form.Control
                                 name="hotel_email"
                                 type="text"
-                                onChange={this.handleChange} value={this.state.hotel_email}/>
+                                onChange={this.props.onChange} value={this.props.hotel_email}/>
                         </Col>
                     </Form.Group>
                     <Form.Group  as={Row}>
@@ -128,7 +134,7 @@ class TourForm extends Component {
                             <Form.Control
                                 name="hotel_telephone"
                                 type="text"
-                                onChange={this.handleChange} value={this.state.hotel_telephone}/>
+                                onChange={this.props.onChange} value={this.props.hotel_telephone}/>
                         </Col>
                     </Form.Group>
                     <Form.Group  as={Row}>
@@ -137,7 +143,7 @@ class TourForm extends Component {
                             <Form.Control
                                 name="hotel_fax"
                                 type="text"
-                                onChange={this.handleChange} value={this.state.hotel_fax}/>
+                                onChange={this.props.onChange} value={this.props.hotel_fax}/>
                         </Col>
                     </Form.Group>
                     <Form.Group  as={Row}>
@@ -147,7 +153,7 @@ class TourForm extends Component {
                                 name="additional_info"
                                 style={{height: '200px', width: '672px'}}
                                 type="text"
-                                onChange={this.handleChange} value={this.state.additional_info}/>
+                                onChange={this.props.onChange} value={this.props.additional_info}/>
                         </Col>
                     </Form.Group>
                     <input type="submit" />
@@ -158,4 +164,10 @@ class TourForm extends Component {
     }
 };
  
-export default TourForm;
+function mapStateToProps(state, ownProps) {
+    return {
+        members: state.members
+    };
+}
+
+  export default connect(mapStateToProps)(TourForm)

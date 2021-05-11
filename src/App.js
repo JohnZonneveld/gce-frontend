@@ -12,6 +12,7 @@ import MemberPage from './components/MemberPage'
 import MemberAdd from './components/MemberAdd'
 import ToursPage from './containers/ToursPage'
 import TourPage from './components/TourPage'
+import TourAdd from './components/TourAdd'
 import {fetchMembers} from './actions/MemberActions'
 import {fetchTours} from './actions/TourActions'
 
@@ -40,6 +41,7 @@ class App extends Component {
 					<Route exact path='/members/new' component={MemberAdd} />
 					<Route exact path='/members/:id' component={MemberPage} />
 					<Route exact path='/tours' component={ToursPage} />
+					<Route exact path='/tours/new' component={TourAdd} />
 					<Route exact path='/tours/:id' component={TourPage} />
 
 				</Switch>

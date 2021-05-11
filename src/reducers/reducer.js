@@ -8,7 +8,6 @@ function reducer(state = { members: [], tours: []}, action) {
 			}
 
 		case "CREATE_MEMBER_SUCCESS":
-			debugger
 			let tempMembers = state.members
 				tempMembers.push(action.member)
 				return {
@@ -17,19 +16,17 @@ function reducer(state = { members: [], tours: []}, action) {
 				}
 
 		case 'UPDATE_MEMBER':
-			debugger
 			let indexOfMember = state.members.findIndex(member => member.id === action.member.id)
-			const newArray = [...state.members]
-			newArray[indexOfMember] = action.member
+			const updateMemberArray = [...state.members]
+			updateMemberArray[indexOfMember] = action.member
 			return {
 				...state,
-				members: newArray,
+				members: updateMemberArray,
 				isEditing: false,
 				isUpdated: true
 			}
 
 		case "DELETE_MEMBER_SUCCESS":
-			debugger
 			return {...state,
 				members: state.members.filter((member) => member.id !== action.member.id)
 			}
@@ -40,13 +37,28 @@ function reducer(state = { members: [], tours: []}, action) {
 				tours: action.tours
 			}
 
-		case "ADD_TOUR":
-			debugger
-			return [...state, action.tour];
+		case "CREATE_TOUR_SUCCESS":
+			let tempTours = state.tours
+				tempTours.push(action.tour)
+				return {
+					...state,
+					tours: tempTours
+				}
 	
 		case "REMOVE_TOUR":
 			idx = state.findIndex(tour => tour.id === action.id);
 			return [...state.slice(0, idx), ...state.slice(idx + 1)];
+
+		case 'UPDATE_TOUR':
+			let indexOfTour = state.tours.findIndex(tour => tour.id === action.tour.id)
+			const updateTourArray = [...state.tours]
+			updateTourArray[indexOfTour] = action.tour
+			return {
+				...state,
+				tours: updateTourArray,
+				isEditing: false,
+				isUpdated: true
+			}
 	
 		default:
 			return state;

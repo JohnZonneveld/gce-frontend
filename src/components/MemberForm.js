@@ -81,7 +81,6 @@ class MemberForm extends Component {
         
                     <input type="submit" />
                 </Form>
-                {/* {this.state.text} */}
             </div>
         );
     }

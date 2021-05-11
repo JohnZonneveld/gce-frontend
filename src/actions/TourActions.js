@@ -1,5 +1,5 @@
 export const fetchTours = () => {
-    debugger
+    // debugger
     return (dispatch) => {
       	fetch("http://localhost:3000/tours")
         .then(response =>  response.json())
