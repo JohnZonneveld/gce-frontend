@@ -10,6 +10,7 @@ class ToursPage extends Component {
         debugger
         return (
             <div className="col-md-12">
+                <br></br>
 				<h1>Tours </h1>
 				<div className="col-md-4">
 					<ToursList tours={this.props.tours} />

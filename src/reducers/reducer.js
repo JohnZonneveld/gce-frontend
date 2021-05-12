@@ -59,6 +59,11 @@ function reducer(state = { members: [], tours: []}, action) {
 				isEditing: false,
 				isUpdated: true
 			}
+
+		case "DELETE_TOUR_SUCCESS":
+			return {...state,
+				tours: state.tours.filter((tour) => tour.id !== action.tour.id)
+			}
 	
 		default:
 			return state;

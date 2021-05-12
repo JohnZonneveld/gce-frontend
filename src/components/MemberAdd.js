@@ -19,7 +19,6 @@ class MemberAdd extends Component {
                 bio: '',
                 birthday: ''
             },
-            // saving: false,
             isAdding: true
         }
         this.handleSubmit = this.handleSubmit.bind(this);

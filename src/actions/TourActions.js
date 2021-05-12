@@ -48,8 +48,9 @@ export const deleteTour = (tour, history) => {
       	})
       	.then(res => res.json())
   		.then(tour => {
-			dispatch(deleteTourSuccess(tour))
 			history.push(`/tours`)
+			dispatch(deleteTourSuccess(tour))
+			
 		})
     }
 }

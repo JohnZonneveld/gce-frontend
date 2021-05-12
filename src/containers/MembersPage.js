@@ -9,6 +9,7 @@ class MembersPage extends Component {
         const members = this.props.members
         return (
             <div className="col-md-12">
+				<br></br>
 				<h1>Members </h1>
 				<div className="col-md-4">
 					<MembersList members={this.props.members} />

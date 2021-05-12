@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Form, Col, Row } from 'react-bootstrap';
 import Select from 'react-select'
+import { Button } from 'react-bootstrap'
  
 class TourForm extends Component {
  
@@ -156,9 +157,8 @@ class TourForm extends Component {
                                 onChange={this.props.onChange} value={this.props.additional_info}/>
                         </Col>
                     </Form.Group>
-                    <input type="submit" />
+                    <Button variant="success" type="submit">Submit</Button>
                 </Form>
-                {/* {this.state.text} */}
             </div>
         );
     }

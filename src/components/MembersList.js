@@ -8,7 +8,7 @@ const MembersList = ({members}) => {
             {members.map(member =>
             <li key={member.id}>
                 <Link to ={'/members/' + member.id}>{member.name}</Link>
-                , {member.role}
+                {member.role ? ', ' + member.role : null}
             </li>)}
         </ul>
     )

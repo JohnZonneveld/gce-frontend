@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Col, Row } from 'react-bootstrap'
+import { Form, Col, Row, Button } from 'react-bootstrap'
 
 
 class MemberForm extends Component {
@@ -78,8 +78,7 @@ class MemberForm extends Component {
                             onChange={this.props.onChange} value={this.props.bio}/>
                         </Col>
                     </Form.Group>
-        
-                    <input type="submit" />
+                    <Button variant="success" type="submit">Submit</Button>
                 </Form>
             </div>
         );

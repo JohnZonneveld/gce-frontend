@@ -8,7 +8,8 @@ const ToursList = ({tours}) => {
             {tours.map(tour =>
             <li key={tour.id}>
                 <Link to ={'/tours/' + tour.id}>{tour.name}</Link>
-                , {tour.role}
+                {tour.country ? ', ' + tour.country : null}
+                , {tour.date}
             </li>)}
         </ul>
     )

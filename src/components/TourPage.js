@@ -218,7 +218,11 @@ class TourPage extends Component {
                     </table>
                     <br></br>
                     
-                    <Button variant="success" onClick={this.toggleEdit}> Edit </Button>
+                    <Button 
+                        variant="success" 
+                        onClick={this.toggleEdit}> 
+                        Edit 
+                    </Button>
                     <Button 
                         variant="danger"
                         onClick={this.deleteTour} 
