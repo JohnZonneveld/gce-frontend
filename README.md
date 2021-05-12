@@ -44,8 +44,3 @@ This will start the app.
 Because both Rails and React app both run default on port 3000 it is important that you run 'rails s' before 'npm start' Both commands are issued in the respective folder (backend vs frontend). This will make sure that the rails server will be running on port 3000. When the rails server is running npm start will give a warning: 
 'Something is already running on port 3000. Probably:
 puma 3.12.6 (tcp://localhost:3000) [gce-backend]' and a referral to the backend project folder and a question if you want to run the app on another port. Simply answer yes and the webserver will start on port 3001.
-
-To run the application issue the following command in the project folder:
-
-### `npm start`
-
