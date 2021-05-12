@@ -2,18 +2,16 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import { Link } from 'react-router-dom'
 import TourEdit from './TourEdit'
-import { editTour, updateTour, deleteTour } from '../actions/TourActions'
+import { editTour, deleteTour } from '../actions/TourActions'
 import '../App.css'
 import Button from 'react-bootstrap/Button';
 
 class TourPage extends Component {
 
     constructor(props, context) {
-        debugger
         super(props, context);
         this.state = {
             tour: this.props.tour, 
-            saving: false,
             isEditing: false,
             isAdding: false
         };
@@ -21,17 +19,16 @@ class TourPage extends Component {
         this.deleteTour = this.deleteTour.bind(this);
     } 
 
-    handleEditSubmit = (e)=> {
-        debugger
+    handleEditSubmit = (event)=> {
         console.log('submit')
-        e.preventDefault()
+        event.preventDefault()
         this.props.editTour(this.state.tour,this.history);
         this.toggleEdit()
     }
 
-    handleAddingSubmit = (e)=> {
+    handleAddingSubmit = (event)=> {
         console.log('submit')
-        e.preventDefault()
+        event.preventDefault()
         this.props.createTour(this.state.tour);
         this.toggleAdd()
     }
@@ -43,22 +40,16 @@ class TourPage extends Component {
         })
     }
     
-    handleChange = event => {
-        debugger
-    this.setState({ tour: {
-        ...this.state.tour,
-        [event.target.name]: event.target.value
-    }
-    })
-    }
-
-    saveTour(event) {
-        event.preventDefault();
-        this.props.updateTour(this.state.tour);
+    handleChange = (event) => {
+        this.setState({ 
+            tour: {
+                ...this.state.tour,
+                [event.target.name]: event.target.value
+            }
+        })
     }
 
     deleteTour(event) {
-        debugger
         this.props.deleteTour(this.state.tour, this.props.history)
     }
 
@@ -82,7 +73,6 @@ class TourPage extends Component {
             </div>
             )
         } else {
-            debugger
             return (
                 <div className="content">
                     <h1>Tour Info: {tour.name}</h1>
@@ -237,22 +227,17 @@ class TourPage extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    debugger
     if (state.tours.length > 0) {
         const tourId = ownProps.match.params.id
         const tourToDisplay = Object.assign({}, state.tours.find(tour => tour.id == tourId))
         var member = state.members.filter(member => {
             return member.id === tourToDisplay.member_id
         })
-        debugger
-        // const organzier = Object.assign({}, state.members.find(member => member.id == tour.member_id))
         return { 
             tour: tourToDisplay,
             member: member
         }
-    } else {
-        debugger 
-    }
+    } 
 }
 
-export default connect(mapStateToProps, {editTour, updateTour, deleteTour})(TourPage)
+export default connect(mapStateToProps, {editTour, deleteTour})(TourPage)

@@ -33,12 +33,10 @@ export const createMember = (member, history) => {
 }
 
 export function createMemberSuccess(member) {
-	debugger
 	return {type: 'CREATE_MEMBER_SUCCESS', member}
 }
   
 export const deleteMember = (member, history) => {
-	debugger
     return (dispatch) => {
       	return fetch(`http://localhost:3000/members/${member.id}`, {
         	method: 'DELETE'
@@ -52,15 +50,12 @@ export const deleteMember = (member, history) => {
 }
 
 export function deleteMemberSuccess(member) {
-	debugger
 	return {type: 'DELETE_MEMBER_SUCCESS', member}
 }
   
 export const editMember = (member, history) => {
-    debugger
     return (dispatch) => {
       	dispatch({type: "EDIT_MEMBER"})
-      	debugger
       	fetch(`http://localhost:3000/members/${member.id}`, {
         	headers: {
           		'Content-Type': 'application/json',
@@ -76,14 +71,7 @@ export const editMember = (member, history) => {
     }
 }
 
-export const updateMember = (id) => {
-	return (dispatch) => {
-		debugger
-	}
-}
-
 export const fetchTours = () => {
-	debugger
     return (dispatch) => {
       	fetch("http://localhost:3000/tours")
         .then(response =>  response.json())

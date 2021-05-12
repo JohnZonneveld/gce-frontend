@@ -5,12 +5,14 @@ const ToursList = ({tours}) => {
 
     return (
         <ul>
-            {tours.map(tour =>
-            <li key={tour.id}>
-                <Link to ={'/tours/' + tour.id}>{tour.name}</Link>
-                {tour.country ? ', ' + tour.country : null}
-                , {tour.date}
-            </li>)}
+            {tours.map(
+                tour =>
+                    <li key={tour.id}>
+                        <Link to ={'/tours/' + tour.id}>{tour.name}</Link>
+                        {tour.country ? ', ' + tour.country : null}
+                        , {tour.date}
+                    </li>
+            )}
         </ul>
     )
 }

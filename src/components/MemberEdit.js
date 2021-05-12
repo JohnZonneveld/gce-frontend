@@ -5,7 +5,6 @@ import { Button, Container, Form, Col } from 'react-bootstrap'
 class MemberEdit extends Component {
 
     render() {
-        debugger
         return (
             <div className="content">
                 <Container>
@@ -94,7 +93,11 @@ class MemberEdit extends Component {
                             />
                         </Col>
                         <br></br>
-                        <Button type="submit">Submit</Button>            
+                        <Button 
+                            variant="success"
+                            type="submit">
+                            Submit
+                        </Button>            
                     </Form>
                 </Container>
             </div>

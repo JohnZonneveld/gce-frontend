@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import MemberEdit from './MemberEdit'
-import { editMember, updateMember, deleteMember } from '../actions/MemberActions'
+import { editMember, deleteMember } from '../actions/MemberActions'
 import '../App.css'
 import Button from 'react-bootstrap/Button';
 
 class MemberPage extends Component {
 
     constructor(props, context) {
-        debugger
         super(props, context);
         this.state = {
             member: this.props.member, 
@@ -20,10 +19,9 @@ class MemberPage extends Component {
         this.deleteMember = this.deleteMember.bind(this);
     } 
 
-    handleEditSubmit = (e)=> {
-        debugger
+    handleEditSubmit = (event)=> {
         console.log('submit')
-        e.preventDefault()
+        event.preventDefault()
         this.props.editMember(this.state.member,this.history);
         this.toggleEdit()
     }
@@ -43,20 +41,15 @@ class MemberPage extends Component {
     }
     
     handleChange = event => {
-    this.setState({ member: {
-        ...this.state.member,
-        [event.target.name]: event.target.value
-    }
-    })
-    }
-
-    saveMember(event) {
-        event.preventDefault();
-        this.props.updateMember(this.state.member);
+        this.setState({ 
+            member: {
+                ...this.state.member,
+                [event.target.name]: event.target.value
+            }
+        })
     }
 
     deleteMember(event) {
-        debugger
         this.props.deleteMember(this.state.member, this.props.history)
     }
 
@@ -152,7 +145,11 @@ class MemberPage extends Component {
                     </table>
                     <br></br>
                     
-                    <Button variant="success" onClick={this.toggleEdit}> Edit </Button>
+                    <Button 
+                        variant="success" 
+                        onClick={this.toggleEdit}>
+                         Edit 
+                    </Button>
                     <Button 
                         variant="danger"
                         onClick={this.deleteMember} 
@@ -167,16 +164,13 @@ class MemberPage extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    debugger
     if (state.members.length > 0) {
         const memberId = ownProps.match.params.id
         const memberToDisplay = Object.assign({}, state.members.find(member => member.id == memberId))
         return { 
             member: memberToDisplay
         }
-    } else {
-        debugger 
-    }
+    } 
 }
 
-export default connect(mapStateToProps, {editMember, updateMember, deleteMember})(MemberPage)
+export default connect(mapStateToProps, {editMember, deleteMember})(MemberPage)

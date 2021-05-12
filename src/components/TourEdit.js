@@ -8,15 +8,7 @@ class TourEdit extends Component {
 
 
     render() {
-        debugger
-        // const options = this.props.members.map(member => {
-        //     return { value: member.name, label: member.name }
-        //  }
-        let selectedMember = this.props.members.filter(member => {
-            return member.id === this.props.tour.member_id
-          })
         const currentMemberObject = this.props.members.filter(member => member.id === this.props.tour.member_id)
-        debugger
         return (
             <div className="content">
                 <Container>
@@ -46,19 +38,22 @@ class TourEdit extends Component {
                             <Form.Label column sm="2">
                                 Organizer: 
                             </Form.Label>
-                            
                             <Select 
                                 options={this.props.members.map(member => {
-                                return { value : member.name, label: member.name, target: {value: member.id, name: "member_id"}}
-                                })}
-                                onChange={event => this.props.handleChange(event)} 
+                                    // added target: {value: mmber.id, name: "member_id"} to make use of the handleChange(event) 
+                                    // used in all the other form fields
+                                    return { value : member.name, label: member.name, target: {value: member.id, name: "member_id"}}
+                                    })
+                                }
+                                onChange={event => this.props.handleChange(event)}
+                                // currentMemberObject is an array with only one Object, to get to that we have to use the index notation
+                                // to be able to access the object values
                                 defaultValue={{label: currentMemberObject[0].name, value: currentMemberObject[0].name}}
-                                // defaultValue={{ label: 2002, value: 2002 }}
                                 name="member_id"
                             >
-                                
                                 {this.props.members.map(member => (
                                     <option 
+                                        key={member.id}
                                         member_id={member.id} 
                                         value={member.id} 
                                     >
@@ -180,7 +175,11 @@ class TourEdit extends Component {
                             
                         </Col>
                         <br></br>
-                        <Button type="submit">Submit</Button>            
+                        <Button 
+                            variant="success"
+                            type="submit">
+                            Submit
+                        </Button>            
                     </Form>
                 </Container>
             </div>

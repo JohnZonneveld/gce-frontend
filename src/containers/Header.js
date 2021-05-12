@@ -5,12 +5,15 @@ import { Container, Row, Col } from 'react-bootstrap'
 import '../App.css'
 
 function Header() {
-
     return (
         <Container fluid>
             <Row >
-                <Col className="rounded float-left"><GtrFront /></Col>
-                <Col className="logoMargin"><Logo /></Col>
+                <Col className="rounded float-left">
+                    <GtrFront />
+                </Col>
+                <Col className="logoMargin">
+                    <Logo />
+                </Col>
                 <Col></Col>
             </Row>
         </Container>

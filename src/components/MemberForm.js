@@ -5,12 +5,10 @@ import { Form, Col, Row, Button } from 'react-bootstrap'
 class MemberForm extends Component {
  
     constructor(props) {
-        debugger
         super(props);
     }
 
     render() {
-        debugger
         return(
             <div className="content">
                 <Form onSubmit={event => this.props.onSubmit(event)}>

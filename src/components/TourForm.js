@@ -14,7 +14,6 @@ class TourForm extends Component {
     }
  
     render() {
-        debugger
         return(
             <div className="content">
                 <Form onSubmit={event => this.props.onSubmit(event)}>

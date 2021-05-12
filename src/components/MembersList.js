@@ -5,11 +5,13 @@ const MembersList = ({members}) => {
 
     return (
         <ul>
-            {members.map(member =>
-            <li key={member.id}>
-                <Link to ={'/members/' + member.id}>{member.name}</Link>
-                {member.role ? ', ' + member.role : null}
-            </li>)}
+            {members.map(
+                member =>
+                    <li key={member.id}>
+                        <Link to ={'/members/' + member.id}>{member.name}</Link>
+                        {member.role ? ', ' + member.role : null}
+                    </li>
+            )}
         </ul>
     )
 }

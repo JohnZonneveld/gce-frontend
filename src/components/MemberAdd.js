@@ -31,7 +31,6 @@ class MemberAdd extends Component {
     }
 
     handleChange = event => {
-        debugger
         this.setState({ 
             member: {
                 ...this.state.member,
@@ -41,7 +40,6 @@ class MemberAdd extends Component {
     }
 
     render() {
-        debugger
         return (
             <div>
                 <MemberForm 
