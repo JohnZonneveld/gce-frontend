@@ -1,11 +1,11 @@
-##'GCE webpage'
+## 'GCE webpage'
 
 This is a React/Redux application working together with a Rails backend with a PostgreSQL database. It shows a simple copy of the eu.zggtr.org website. Last year I took over the webmaster role of that site. Problem however is that over the years there have been many webmasters and almost everyone used a different program. So it has become a mix and match of programming.
 Time for an overhaul.
 
 For my final React/Redux project at Flatiron School I decided to try to recreate the site. For now it has 2 static pages the home- and about-page, and two interactive sections Members and Tours. 
 
-##'Project Info:'
+## 'Project Info:'
 This project was created with Create React App (https://github.com/facebook/create-react-app).
 
 The project consists of two repos:
@@ -16,9 +16,9 @@ https://github.com/JohnZonneveld/gce-backend
 
 To run this project you should have PostgreSQL running on your system. Download both repos and extract them. 
 
-##'To install:'
+## 'To install:'
 
-##'Rails backend'
+## 'Rails backend'
 Extract the downloaded repo and open a terminal session.
 Use cd to get into the project folder, and run
 ##    'bundle install'
@@ -33,7 +33,7 @@ Next issue the command
 ##    'rails s'
 this will start the backend, Ruby on Rails server that serves our React/Redux frontend.
 
-##'React/Redux frontend'
+## 'React/Redux frontend'
 Extract the downloaded repo and open a terminal window. Change in to the extracted folder and issue
 ##    'npm install'
 This will read the package.json and will download and install all dependencies.
