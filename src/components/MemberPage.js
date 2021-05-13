@@ -125,6 +125,15 @@ class MemberPage extends Component {
                             </tr>
                             <tr>
                                 <td>
+                                    Email:
+                                </td>
+                                <td></td>
+                                <td>
+                                    {member.email}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
                                     Bio:
                                 </td>
                                 <td></td>
