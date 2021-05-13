@@ -7,9 +7,11 @@ function Footer() {
     return (
         <Container fluid>
             <Row >
+                <Col></Col>
                 <Col className="footer">
                     <Timeline />
                 </Col>
+                <Col></Col>
             </Row>
         </Container> 
     );
