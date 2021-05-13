@@ -39,23 +39,13 @@ class TourForm extends Component {
                                 Organizer: 
                             </Form.Label>
                             
-                            <Select 
+                            <Select className="mt-4 col-md-8 col-offset-4"
                                 options={this.props.members.map(member => {
                                 return { value : member.name, label: member.name, target: {value: member.id, name: "member_id"}}
                                 })}
                                 onChange={event => this.props.onChange(event)} 
-                                // defaultValue={{label: currentMemberObject[0].name, value: currentMemberObject[0].name}}
                                 name="member_id"
-                            >          
-                                {this.props.members.map(member => (
-                                    <option 
-                                        member_id={member.id} 
-                                        value={member.id} 
-                                    >
-                                        {member.name}
-                                    </option>
-                                ))}
-                            </Select>
+                            />          
                     <Form.Group  as={Row}>
                         <Form.Label  column sm="2">Date:</Form.Label>
                         <Col sm="6">
@@ -169,4 +159,4 @@ function mapStateToProps(state, ownProps) {
     };
 }
 
-  export default connect(mapStateToProps)(TourForm)
+export default connect(mapStateToProps)(TourForm)

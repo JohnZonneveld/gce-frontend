@@ -38,7 +38,7 @@ class TourEdit extends Component {
                             <Form.Label column sm="2">
                                 Organizer: 
                             </Form.Label>
-                            <Select 
+                            <Select className="mt-4 col-md-8 col-offset-4"
                                 options={this.props.members.map(member => {
                                     // added target: {value: mmber.id, name: "member_id"} to make use of the handleChange(event) 
                                     // used in all the other form fields
@@ -51,7 +51,7 @@ class TourEdit extends Component {
                                 defaultValue={{label: currentMemberObject[0].name, value: currentMemberObject[0].name}}
                                 name="member_id"
                             >
-                                {this.props.members.map(member => (
+                                {/* {this.props.members.map(member => (
                                     <option 
                                         key={member.id}
                                         member_id={member.id} 
@@ -59,7 +59,7 @@ class TourEdit extends Component {
                                     >
                                         {member.name}
                                     </option>
-                                ))}
+                                ))} */}
                             </Select>
         
                             <Form.Label column sm="2">
