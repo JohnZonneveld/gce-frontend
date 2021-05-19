@@ -119,7 +119,7 @@ class TourEdit extends Component {
                             <Form.Control 
                                 type="text"
                                 name="hotel_website"
-                                value={this.props.tour.hotel_website}
+                                value={this.props.tour.hotel_web}
                                 placeholder="Website"
                                 onChange={event => this.props.handleChange(event)}
                             />

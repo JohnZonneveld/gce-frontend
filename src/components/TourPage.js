@@ -73,6 +73,7 @@ class TourPage extends Component {
             </div>
             )
         } else {
+            debugger
             return (
                 <div className="content">
                     <h1>Tour Info: {tour.name}</h1>
