@@ -1,9 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 import {connect} from 'react-redux'
 import MemberEdit from './MemberEdit'
 import { editMember, deleteMember } from '../actions/MemberActions'
 import '../App.css'
 import Button from 'react-bootstrap/Button';
+import ToursList from './ToursList'
 
 class MemberPage extends Component {
 
@@ -61,6 +62,7 @@ class MemberPage extends Component {
 
     render() {
         var member = this.props.member
+        var membertours = this.props.membertours
         if (this.state.isEditing) {
             return (
             <div className="content">
@@ -73,6 +75,7 @@ class MemberPage extends Component {
             </div>
             )
         } else {
+            debugger
             return (
                 <div className="content">
                     <h1>Member Info: {member.name}</h1>
@@ -165,7 +168,9 @@ class MemberPage extends Component {
                         className="btn btn-default">
                         Delete
                     </Button>
-                    
+                    <br></br><br></br>
+                    {!!membertours.length  ? 'Tours organized by '+ member.name : null}
+                    <ToursList tours={membertours} />
                 </div>
             );
         }
@@ -174,10 +179,13 @@ class MemberPage extends Component {
 
 const mapStateToProps = (state, ownProps) => {
     if (state.members.length > 0) {
+        debugger
         const memberId = ownProps.match.params.id
         const memberToDisplay = Object.assign({}, state.members.find(member => member.id == memberId))
+        const memberTours = state.tours.filter(tour => tour.member_id == memberId)
         return { 
-            member: memberToDisplay
+            member: memberToDisplay,
+            membertours: memberTours
         }
     } 
 }
