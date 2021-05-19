@@ -51,15 +51,6 @@ class TourEdit extends Component {
                                 defaultValue={{label: currentMemberObject[0].name, value: currentMemberObject[0].name}}
                                 name="member_id"
                             >
-                                {/* {this.props.members.map(member => (
-                                    <option 
-                                        key={member.id}
-                                        member_id={member.id} 
-                                        value={member.id} 
-                                    >
-                                        {member.name}
-                                    </option>
-                                ))} */}
                             </Select>
         
                             <Form.Label column sm="2">
@@ -99,7 +90,7 @@ class TourEdit extends Component {
                                 type="text"
                                 name="hotel_address"
                                 value={this.props.tour.hotel_address}
-                                placeholder="Email"
+                                placeholder="Address"
                                 onChange={event => this.props.handleChange(event)}
                             />
                             <Form.Label column sm="2">
@@ -117,7 +108,7 @@ class TourEdit extends Component {
                             </Form.Label>
                             <Form.Control 
                                 type="text"
-                                name="zipcode"
+                                name="hotel_zipcode"
                                 value={this.props.tour.hotel_zipcode}
                                 placeholder="Zipcode"
                                 onChange={event => this.props.handleChange(event)}

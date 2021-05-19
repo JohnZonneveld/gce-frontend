@@ -23,7 +23,7 @@ class TourForm extends Component {
                             <Form.Control
                                 name="name"
                                 type="text"
-                                onChange={this.props.onChange} value={this.props.tour_name}/>
+                                onChange={this.props.onChange} value={this.props.name}/>
                         </Col>
                     </Form.Group>
                     <Form.Group  as={Row}>
