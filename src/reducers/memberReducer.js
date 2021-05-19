@@ -1,35 +1,36 @@
-export default function memberReducer(state = { members: []}, action) {
+export default function memberReducer(state = [], action) {
     let idx;
     switch (action.type) {
 		case "FETCH_MEMBERS_SUCCESS":
-			return {
-				...state,
-				members: action.members
-			}
+            debugger
+			return [
+				...state, ...action.members
+            ]
 
 		case "CREATE_MEMBER_SUCCESS":
-			let tempMembers = state.members
-				tempMembers.push(action.member)
-				return {
-					...state,
-					members: tempMembers
-				}
+            debugger
+			// let tempMembers = state
+			// 	tempMembers.push(action.member)
+            return [
+                ...state,
+                action.member
+            ]
 
 		case 'UPDATE_MEMBER':
-			let indexOfMember = state.members.findIndex(member => member.id === action.member.id)
-			const updateMemberArray = [...state.members]
+			let indexOfMember = state.findIndex(member => member.id === action.member.id)
+			const updateMemberArray = [...state]
 			updateMemberArray[indexOfMember] = action.member
-			return {
-				...state,
-				members: updateMemberArray,
-				isEditing: false,
-				isUpdated: true
-			}
+			return [
+				...updateMemberArray,
+				// isEditing: false,
+				// isUpdated: true
+            ]
 
 		case "DELETE_MEMBER_SUCCESS":
-			return {...state,
-				members: state.members.filter((member) => member.id !== action.member.id)
-			}
+            // const tempMembers = state.filter((member) => member.id !== action.member.id)
+			return [
+				...state.filter(member => member.id !== action.member.id)
+            ]
 
         default:
             return state;
