@@ -3,9 +3,7 @@ import { Button, Container, Form, Col, Dropdown } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import Select from 'react-select'
 
-
 class TourEdit extends Component {
-
 
     render() {
         const currentMemberObject = this.props.members.filter(member => member.id == this.props.tour.member_id)
@@ -40,28 +38,12 @@ class TourEdit extends Component {
                                 Organizer: 
                             </Form.Label>
                             <Col>
-                            {/* <Select className="mt-4 col-md-8 col-offset-4"
-                                options={this.props.members.map(member => {
-                                    // added target: {value: mmber.id, name: "member_id"} to make use of the handleChange(event) 
-                                    // used in all the other form fields
-                                    return { value : member.name, label: member.name, target: {value: member.id, name: "member_id"}}
-                                    })
-                                }
-                                onChange={event => this.props.handleChange(event)}
-                                // currentMemberObject is an array with only one Object, to get to that we have to use the index notation
-                                // to be able to access the object values
-                                defaultValue={{label: currentMemberObject[0].name, value: currentMemberObject[0].name}}
-                                name="member_id"
-                            >
-                            </Select> */}
-                            {/* <Form.Control> */}
+                            
                             <select name="member_id" value={currentMemberObject[0].id} label={currentMemberObject[0].name} required onChange={event => this.props.handleChange(event)}>
-                            {/* <option value="" selected="selected">- Select a Organizer -</option> */}
                             {this.props.members.map((member) => {
                                 return <option key={member.id} value={member.id}>{member.name}</option>;
                             })}
                             </ select>
-                            {/* </Form.Control> */}
                             </Col>
                             <Form.Label column sm="2">
                                 Date: 
