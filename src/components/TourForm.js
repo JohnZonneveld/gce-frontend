@@ -37,15 +37,22 @@ class TourForm extends Component {
                     </Form.Group>
                     <Form.Label column sm="2">
                                 Organizer: 
-                            </Form.Label>
+                    </Form.Label>
                             
-                            <Select className="mt-4 col-md-8 col-offset-4"
+                            {/* <Select className="mt-4 col-md-8 col-offset-4"
                                 options={this.props.members.map(member => {
                                 return { value : member.name, label: member.name, target: {value: member.id, name: "member_id"}}
                                 })}
                                 onChange={event => this.props.onChange(event)} 
                                 name="member_id"
-                            />          
+                            />       */}
+                            <select name="member_id" required onChange={event => this.props.onChange(event)}>
+                            <option value="" selected="selected">- Select a Organizer -</option>
+                            {this.props.members.map((member) => {
+                                return <option key={member.id} value={member.id}>{member.name}</option>;
+                            })}
+                            </select>
+
                     <Form.Group  as={Row}>
                         <Form.Label  column sm="2">Date:</Form.Label>
                         <Col sm="6">

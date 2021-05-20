@@ -8,7 +8,7 @@ class TourEdit extends Component {
 
 
     render() {
-        const currentMemberObject = this.props.members.filter(member => member.id === this.props.tour.member_id)
+        const currentMemberObject = this.props.members.filter(member => member.id == this.props.tour.member_id)
         return (
             <div className="content">
                 <Container>
@@ -29,6 +29,7 @@ class TourEdit extends Component {
                                 Country: 
                             </Form.Label>
                             <Form.Control 
+                                size="md"
                                 type="text"
                                 name="country"
                                 value={this.props.tour.country}
@@ -38,7 +39,8 @@ class TourEdit extends Component {
                             <Form.Label column sm="2">
                                 Organizer: 
                             </Form.Label>
-                            <Select className="mt-4 col-md-8 col-offset-4"
+                            <Col>
+                            {/* <Select className="mt-4 col-md-8 col-offset-4"
                                 options={this.props.members.map(member => {
                                     // added target: {value: mmber.id, name: "member_id"} to make use of the handleChange(event) 
                                     // used in all the other form fields
@@ -51,8 +53,16 @@ class TourEdit extends Component {
                                 defaultValue={{label: currentMemberObject[0].name, value: currentMemberObject[0].name}}
                                 name="member_id"
                             >
-                            </Select>
-        
+                            </Select> */}
+                            {/* <Form.Control> */}
+                            <select name="member_id" value={currentMemberObject[0].id} label={currentMemberObject[0].name} required onChange={event => this.props.handleChange(event)}>
+                            {/* <option value="" selected="selected">- Select a Organizer -</option> */}
+                            {this.props.members.map((member) => {
+                                return <option key={member.id} value={member.id}>{member.name}</option>;
+                            })}
+                            </ select>
+                            {/* </Form.Control> */}
+                            </Col>
                             <Form.Label column sm="2">
                                 Date: 
                             </Form.Label>
