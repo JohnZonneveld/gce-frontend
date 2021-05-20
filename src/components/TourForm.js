@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Form, Col, Row } from 'react-bootstrap';
-import Select from 'react-select'
 import { Button } from 'react-bootstrap'
  
 class TourForm extends Component {
  
     constructor(props) {
         super(props);
-        // this.state = {
-            
-        // };
     }
  
     render() {
@@ -35,24 +31,17 @@ class TourForm extends Component {
                                 onChange={this.props.onChange} value={this.props.country}/>
                         </Col>
                     </Form.Group>
-                    <Form.Label column sm="2">
-                                Organizer: 
-                    </Form.Label>
-                            
-                            {/* <Select className="mt-4 col-md-8 col-offset-4"
-                                options={this.props.members.map(member => {
-                                return { value : member.name, label: member.name, target: {value: member.id, name: "member_id"}}
+                    <Form.Group  as={Row}>
+                    <Form.Label column sm="2">Organizer: </Form.Label>
+                        <Col sm="6">
+                            <select class="form-control" name="member_id" required onChange={event => this.props.onChange(event)}>
+                                <option value="" selected="selected">- Select a Organizer -</option>
+                                {this.props.members.map((member) => {
+                                    return <option key={member.id} value={member.id}>{member.name}</option>;
                                 })}
-                                onChange={event => this.props.onChange(event)} 
-                                name="member_id"
-                            />       */}
-                            <select name="member_id" required onChange={event => this.props.onChange(event)}>
-                            <option value="" selected="selected">- Select a Organizer -</option>
-                            {this.props.members.map((member) => {
-                                return <option key={member.id} value={member.id}>{member.name}</option>;
-                            })}
                             </select>
-
+                        </Col>
+                    </Form.Group>
                     <Form.Group  as={Row}>
                         <Form.Label  column sm="2">Date:</Form.Label>
                         <Col sm="6">
