@@ -1,0 +1,42 @@
+.header {
+  left:0;
+  bottom:0;
+  right:0;
+}
+
+.logoMargin {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+div.noMargin {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.content {
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 20px;
+  padding-top: 10px;
+  max-height: 450px;
+  overflow-y: auto;
+  padding-bottom:135px;
+}
+
+.footer {
+  position:absolute;
+  left:0;
+  bottom:0;
+  right:0;
+}
+
+h1,h2 {
+  color: #2F9B30;
+}
+
+div.rounded.float-left.col {
+  padding: 0%;
+ /* padding-left: 0px; */
+ /* padding-bottom: 10px; */
+}
