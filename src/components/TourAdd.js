@@ -25,7 +25,6 @@ class TourAdd extends Component {
                 hotel_fax: '',
                 additional_info: ''
             },
-            // saving: false,
             isAdding: true
         }
         this.handleSubmit = this.handleSubmit.bind(this);
