@@ -7,13 +7,6 @@ import DatePicker from 'react-date-picker'
  
 class TourForm extends Component {
  
-    // constructor(props) {
-    //     super(props);
-    //     // this.state = {
-            
-    //     // };
-    // }
- 
     render() {
         const defaultValue= new Date()
         console.log(defaultValue)
@@ -52,16 +45,11 @@ class TourForm extends Component {
                     </Form.Group>        
                     <Form.Group  as={Row}>
                         <Form.Label column sm="2">Date:</Form.Label>
-                        {/* <Col sm="6">
-                            <Form.Control
-                                name="date"
-                                type="date"
-                                onChange={this.props.onChange} value={this.props.date}/>
-                        </Col> */}
                         <Col sm="6">
                         <DatePicker 
                             value={this.props.tour.date}
-                            placeholder="Choose a date"
+                            // selected={this.props.tour.date}
+                            dateFormat="MM/dd/yyyy"
                             onChange={this.props.onDateChange}
 
                             />

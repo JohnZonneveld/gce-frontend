@@ -38,7 +38,6 @@ class TourAdd extends Component {
     }
 
     handleChange = event => {
-        debugger
         this.setState({ 
             tour: {
                 ...this.state.tour,
@@ -48,7 +47,6 @@ class TourAdd extends Component {
     }
 
     handleDate = event => {
-        debugger
         this.setState({
             tour: {
                 ...this.state.tour,

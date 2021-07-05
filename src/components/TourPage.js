@@ -49,6 +49,15 @@ class TourPage extends Component {
         })
     }
 
+    handleDate = (event) => {
+        this.setState({
+            tour: {
+                ...this.state.tour,
+                date: event
+            }
+        })
+    }
+
     deleteTour(event) {
         this.props.deleteTour(this.state.tour, this.props.history)
     }
@@ -69,6 +78,7 @@ class TourPage extends Component {
                     tour={this.state.tour}
                     handleChange={this.handleChange}
                     handleSubmit={this.handleEditSubmit} 
+                    handleDate={this.handleDate}
                 />        
             </div>
             )
@@ -111,7 +121,9 @@ class TourPage extends Component {
                                 </td>
                                 <td></td>
                                 <td>
-                                    {tour.date}.getDateWithoutTime()
+                                    <span>
+                                        {(new Date(tour.date)).toLocaleDateString() }
+                                    </span>
                                 </td>
                             </tr>
                             <tr>

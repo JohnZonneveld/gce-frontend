@@ -6,8 +6,6 @@ import { Link } from 'react-router-dom'
 class ToursPage extends Component {
   
     render () {
-        // const tours = this.props.tours
-        debugger
         return (
             <div className="col-md-12">
                 <br></br>
@@ -24,7 +22,6 @@ class ToursPage extends Component {
 }
 
 function mapStateToProps(state, ownProps) {
-    debugger
     return {
         tours: state.tours
     };

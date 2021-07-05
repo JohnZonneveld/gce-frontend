@@ -61,7 +61,6 @@ class MemberPage extends Component {
     }
 
     render() {
-        debugger
         let member = this.props.member
         let membertours = this.props.membertours
         if (this.state.isEditing) {
@@ -179,7 +178,6 @@ class MemberPage extends Component {
 
 const mapStateToProps = (state, ownProps) => {
     if (state.members.length > 0) {
-        debugger
         const memberId = ownProps.match.params.id
         const memberToDisplay = Object.assign({}, state.members.find(member => member.id == memberId))
         const memberTours = state.tours.filter(tour => tour.member_id == memberId)
