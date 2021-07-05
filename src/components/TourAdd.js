@@ -56,7 +56,9 @@ class TourAdd extends Component {
 
     render() {
         return (
-            <div>
+            <div className="col-md-12">
+                <br></br>
+                <h1>Add Tour</h1>
                 <TourForm 
                     tour = {this.state.tour}
                     onSubmit={this.handleSubmit}

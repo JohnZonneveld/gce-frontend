@@ -15,6 +15,7 @@ div.noMargin {
 }
 
 .content {
+  display: flex;
   margin-left: 40px;
   margin-right: 40px;
   margin-top: 20px;
@@ -43,4 +44,8 @@ div.rounded.float-left.col {
 
 .react-date-picker__wrapper {
   border: #ced4da
+}
+
+.row {
+  width: 80%;
 }

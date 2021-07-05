@@ -14,8 +14,8 @@ class TourForm extends Component {
             <div className="content">
                 <Form onSubmit={event => this.props.onSubmit(event)}>
                     <Form.Group  as={Row}>
-                        <Form.Label  column sm="2">Tour name:</Form.Label>
-                        <Col sm="6">
+                        <Form.Label  column sm="3">Tour name:</Form.Label>
+                        <Col sm="5">
                             <Form.Control
                                 name="name"
                                 type="text"
@@ -23,8 +23,8 @@ class TourForm extends Component {
                         </Col>
                     </Form.Group>
                     <Form.Group  as={Row}>
-                        <Form.Label  column sm="2">Country:</Form.Label>
-                        <Col sm="6">
+                        <Form.Label  column sm="3">Country:</Form.Label>
+                        <Col sm="5">
                             <Form.Control
                                 name="country"
                                 type="text"
@@ -32,8 +32,8 @@ class TourForm extends Component {
                         </Col>
                     </Form.Group>
                     <Form.Group  as={Row}>
-                        <Form.Label column sm="2">Organizer: </Form.Label>
-                        <Col sm="6">
+                        <Form.Label column sm="3">Organizer: </Form.Label>
+                        <Col sm="5">
                             <Select 
                                 options={this.props.members.map(member => {
                                 return { value : member.name, label: member.name, target: {value: member.id, name: "member_id"}}
@@ -44,8 +44,8 @@ class TourForm extends Component {
                             </Col>
                     </Form.Group>        
                     <Form.Group  as={Row}>
-                        <Form.Label column sm="2">Date:</Form.Label>
-                        <Col sm="6">
+                        <Form.Label column sm="3">Date:</Form.Label>
+                        <Col sm="5">
                         <DatePicker 
                             value={this.props.tour.date}
                             // selected={this.props.tour.date}
@@ -56,8 +56,8 @@ class TourForm extends Component {
                         </Col>
                     </Form.Group>
                     <Form.Group  as={Row}>
-                        <Form.Label  column sm="2">Duration:</Form.Label>
-                        <Col sm="6">
+                        <Form.Label  column sm="3">Duration:</Form.Label>
+                        <Col sm="5">
                             <Form.Control
                                 name="duration"
                                 type="text"
@@ -65,8 +65,8 @@ class TourForm extends Component {
                         </Col>
                     </Form.Group>
                     <Form.Group  as={Row}>
-                        <Form.Label  column sm="2">Hotel Name:</Form.Label>
-                        <Col sm="6">
+                        <Form.Label  column sm="3">Hotel Name:</Form.Label>
+                        <Col sm="5">
                             <Form.Control
                                 name="hotel_name"
                                 type="text"
@@ -74,8 +74,8 @@ class TourForm extends Component {
                         </Col>
                     </Form.Group>
                     <Form.Group  as={Row}>
-                        <Form.Label  column sm="2">Hotel Address:</Form.Label>
-                        <Col sm="6">
+                        <Form.Label  column sm="3">Hotel Address:</Form.Label>
+                        <Col sm="5">
                             <Form.Control
                                 name="hotel_address"
                                 type="text"
@@ -83,8 +83,8 @@ class TourForm extends Component {
                         </Col>
                     </Form.Group>
                     <Form.Group  as={Row}>
-                        <Form.Label  column sm="2">Hotel Town:</Form.Label>
-                        <Col sm="6">
+                        <Form.Label  column sm="3">Hotel Town:</Form.Label>
+                        <Col sm="5">
                             <Form.Control
                                 name="hotel_town"
                                 type="text"
@@ -92,8 +92,8 @@ class TourForm extends Component {
                         </Col>
                     </Form.Group>
                     <Form.Group  as={Row}>
-                        <Form.Label  column sm="2">Hotel Zip Code:</Form.Label>
-                        <Col sm="6">
+                        <Form.Label  column sm="3">Hotel Zip Code:</Form.Label>
+                        <Col sm="5">
                             <Form.Control
                                 name="hotel_zip"
                                 type="text"
@@ -101,8 +101,8 @@ class TourForm extends Component {
                         </Col>
                     </Form.Group>
                     <Form.Group  as={Row}>
-                        <Form.Label  column sm="2">Hotel Website:</Form.Label>
-                        <Col sm="6">
+                        <Form.Label  column sm="3">Hotel Website:</Form.Label>
+                        <Col sm="5">
                             <Form.Control
                                 name="hotel_web"
                                 type="text"
@@ -110,8 +110,8 @@ class TourForm extends Component {
                         </Col>
                     </Form.Group>
                     <Form.Group  as={Row}>
-                        <Form.Label  column sm="2">Hotel Email:</Form.Label>
-                        <Col sm="6">
+                        <Form.Label  column sm="3">Hotel Email:</Form.Label>
+                        <Col sm="5">
                             <Form.Control
                                 name="hotel_email"
                                 type="text"
@@ -119,8 +119,8 @@ class TourForm extends Component {
                         </Col>
                     </Form.Group>
                     <Form.Group  as={Row}>
-                        <Form.Label  column sm="2">Hotel Telephone:</Form.Label>
-                        <Col sm="6">
+                        <Form.Label  column sm="3">Hotel Telephone:</Form.Label>
+                        <Col sm="5">
                             <Form.Control
                                 name="hotel_telephone"
                                 type="text"
@@ -128,8 +128,8 @@ class TourForm extends Component {
                         </Col>
                     </Form.Group>
                     <Form.Group  as={Row}>
-                        <Form.Label  column sm="2">Hotel Fax:</Form.Label>
-                        <Col sm="6">
+                        <Form.Label  column sm="3">Hotel Fax:</Form.Label>
+                        <Col sm="5">
                             <Form.Control
                                 name="hotel_fax"
                                 type="text"
@@ -137,8 +137,8 @@ class TourForm extends Component {
                         </Col>
                     </Form.Group>
                     <Form.Group  as={Row}>
-                    <Form.Label  column sm="2">Info:</Form.Label>
-                        <Col sm="6">
+                    <Form.Label  column sm="3 ">Info:</Form.Label>
+                        <Col sm="5">
                             <Form.Control as="textarea"
                                 name="additional_info"
                                 style={{height: '200px', width: '672px'}}
@@ -148,6 +148,7 @@ class TourForm extends Component {
                     </Form.Group>
                     <Button variant="success" type="submit">Submit</Button>
                 </Form>
+                
             </div>
         );
     }
